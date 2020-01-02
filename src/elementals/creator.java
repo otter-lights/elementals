@@ -25,8 +25,8 @@ import javax.swing.JPanel;
 public class creator extends javax.swing.JFrame {
     
     start starter;
-    private player character;
-    private loginForm login;
+    player character;
+    loginForm login;
     
     ImageIcon fireIcon = new ImageIcon("src//elementals//images//fire-icon.png");
     ImageIcon earthIcon = new ImageIcon("src//elementals//images//earth-icon.png");

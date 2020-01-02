@@ -15,14 +15,16 @@ import java.io.IOException;
  * @author rachelroutly
  */
 public class loginForm extends javax.swing.JFrame {
-    start starter;
     /**
      * Creates new form loginForm
-     * @param m
      */
-    public loginForm(start m) {
+    start starter;
+    creator create;
+    home house;
+    
+    public loginForm(start s) {
         initComponents();
-        starter = m;
+        starter = s;
     }
     
     private player character;
@@ -111,40 +113,49 @@ public class loginForm extends javax.swing.JFrame {
             //creates file and buffer readers to get data from
             FileReader r = new FileReader("src//elementals//character_saves//" + username + ".txt");
             BufferedReader b = new BufferedReader(r);
-
+            
             uname = b.readLine();
             pword = b.readLine();
-            String charName = b.readLine();
             
-            String sR = b.readLine();
-            String sG = b.readLine();
-            String sB = b.readLine();
+            if(pword.equals(password)){
+                String charName = b.readLine();
+
+                String sR = b.readLine();
+                String sG = b.readLine();
+                String sB = b.readLine();
+
+                String f = b.readLine();
+                String e = b.readLine();
+                String i = b.readLine();
+                String w = b.readLine();
+
+                Double fire = Double.parseDouble(f);
+                Double earth = Double.parseDouble(e);
+                Double ice = Double.parseDouble(i);
+                Double water = Double.parseDouble(w);
+
+                Color colour = new Color(Integer.parseInt(sR), Integer.parseInt(sG), Integer.parseInt(sB));
+
+                character = new player(uname, pword, charName, colour, fire, earth, ice, water);
+                
+                System.out.println("Correct Password");
             
-            String f = b.readLine();
-            String e = b.readLine();
-            String i = b.readLine();
-            String w = b.readLine();
-            
-            Double fire = Double.parseDouble(f);
-            Double earth = Double.parseDouble(e);
-            Double ice = Double.parseDouble(i);
-            Double water = Double.parseDouble(w);
-            
-            Color colour = new Color(Integer.parseInt(sR), Integer.parseInt(sG), Integer.parseInt(sB));
-            
-            System.out.println("yay");
-            character = new player(uname, pword, charName, colour, fire, earth, ice, water);
+                if(house == null){
+                    System.out.println("test");
+                    house = new home(this);
+                }    
+                this.setVisible(false); 
+                house.setVisible(true);  
+            }
+            else{
+                System.out.println("Wrong Password");
+            }
             b.close();
         }
         catch(IOException e){
             System.out.println("user not valid");
-        }   
-        if(pword.equals(password)){
-            System.out.println("Correct Password");
-        } 
-        else{
-            System.out.println("Wrong Password");
         }
+        
     }//GEN-LAST:event_loginBttnActionPerformed
 
     /**
