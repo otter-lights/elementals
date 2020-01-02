@@ -34,12 +34,12 @@ public class creator extends javax.swing.JFrame {
     ImageIcon iceIcon = new ImageIcon("src//elementals//images//ice-icon.png");
     /**
      * Creates new form creator
-     * @param m
+     * @param s
      */
-    public creator(start m) {
+    public creator(start s) {
         initComponents();
         colorChooser.setPreviewPanel(new JPanel());
-        starter = m;
+        starter = s;
         fireBttn.setIcon(fireIcon);
         earthBttn.setIcon(earthIcon);
         waterBttn.setIcon(waterIcon);

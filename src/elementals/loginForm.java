@@ -142,9 +142,9 @@ public class loginForm extends javax.swing.JFrame {
             
                 if(house == null){
                     System.out.println("test");
-                    house = new home(this);
+                    house = new home(character);
                 }    
-                this.setVisible(false); 
+                //this.setVisible(false); 
                 house.setVisible(true);  
             }
             else{
@@ -154,8 +154,7 @@ public class loginForm extends javax.swing.JFrame {
         }
         catch(IOException e){
             System.out.println("user not valid");
-        }
-        
+        }        
     }//GEN-LAST:event_loginBttnActionPerformed
 
     /**
