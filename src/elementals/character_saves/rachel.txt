@@ -1,0 +1,10 @@
+rachel
+password
+rachel
+204
+255
+204
+8.6
+3.5
+6.1
+0.3
