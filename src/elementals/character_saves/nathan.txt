@@ -1,0 +1,10 @@
+nathan
+password
+nathan
+153
+255
+153
+8.0
+6.6
+7.0
+2.2
