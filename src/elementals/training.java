@@ -18,8 +18,7 @@ public class training extends javax.swing.JFrame {
      */
     public training(player c) {
         initComponents();
-        c = character;
-        
+        character = c;        
     }
 
     /**
@@ -171,6 +170,7 @@ public class training extends javax.swing.JFrame {
 
     private void trainBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trainBttnActionPerformed
         // TODO add your handling code here:
+        System.out.println(character.getUserName());
         if(waterForm == null){
             System.out.println("testing yeet");
             waterForm = new water(character);

@@ -17,11 +17,11 @@ public class player {
     Color color;
     
     
-    public player(String uName, String pWord, String name, Color c, double f, double e, double i, double w){
+    public player(String uName, String pWord, String name, int red, int green, int blue, double f, double e, double i, double w){
         username = uName;
         password = pWord;
         charName = name;
-        color = c;
+        color = new Color(red, green, blue);
         
         fireStat = f;
         earthStat = e;

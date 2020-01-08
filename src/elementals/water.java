@@ -20,9 +20,9 @@ public class water extends javax.swing.JFrame {
      * Creates new form water
      */
     public water(player c) {
+        character = c;
         initComponents();
         chooseQuestions();
-        c = character;       
     }
     
     /**
@@ -132,8 +132,6 @@ public class water extends javax.swing.JFrame {
     private void submitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBttnActionPerformed
         // TODO add your handling code here:
         int numCorrect = 0;
-        double currNum;
-        
         if(correct[numOne] == answerOne.getSelectedItem()){
             numCorrect++;
         }
@@ -145,20 +143,21 @@ public class water extends javax.swing.JFrame {
         if(correct[numThree] == answerThree.getSelectedItem()){
             numCorrect++;
         }
-                
+        double d = character.getWater();
+        System.out.println(d);        
         
         switch (numCorrect) {
             case 1:
-                currNum = character.getWater();
-                character.setWater(currNum + 0.3);
+                System.out.println("1");
+                character.setWater(d + 0.3);
                 break;
             case 2:
-                currNum = character.getWater();
-                character.setWater(currNum + 0.6);
+                System.out.println("2");
+                character.setWater(d + 0.6);
                 break;
             case 3:
-                currNum = character.getWater();
-                character.setWater(currNum + 1.0);
+                System.out.println("3");                
+                character.setWater(d + 1.0);
                 break;
             default:
                 break;

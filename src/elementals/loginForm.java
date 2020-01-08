@@ -123,7 +123,11 @@ public class loginForm extends javax.swing.JFrame {
                 String sR = b.readLine();
                 String sG = b.readLine();
                 String sB = b.readLine();
-
+                
+                int iR = Integer.parseInt(sR);
+                int iG = Integer.parseInt(sG);
+                int iB = Integer.parseInt(sB);
+                
                 String f = b.readLine();
                 String e = b.readLine();
                 String i = b.readLine();
@@ -136,10 +140,10 @@ public class loginForm extends javax.swing.JFrame {
 
                 Color colour = new Color(Integer.parseInt(sR), Integer.parseInt(sG), Integer.parseInt(sB));
 
-                character = new player(uname, pword, charName, colour, fire, earth, ice, water);
+                character = new player(uname, pword, charName, iR, iG, iB, fire, earth, ice, water);
                 
                 System.out.println("Correct Password");
-            
+                System.out.println(character.getUserName());
                 if(house == null){
                     System.out.println("test");
                     house = new home(character);

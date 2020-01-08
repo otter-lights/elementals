@@ -17,7 +17,7 @@ public class home extends javax.swing.JFrame {
      */
     public home(player c) {
         initComponents();
-        c = character;
+        character = c;
     }
 
     /**
@@ -62,6 +62,7 @@ public class home extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        System.out.println(character.getUserName());
         if(train == null){
             System.out.println("test");
             train = new training(character);
