@@ -12,13 +12,20 @@ package elementals;
 public class training extends javax.swing.JFrame {
     player character;
     water waterForm;
+    earth earthForm;
+    fire fireForm;
+    ice iceForm;
     /**
      * Creates new form training
      * @param c
      */
     public training(player c) {
         initComponents();
-        character = c;        
+        character = c;  
+        earthStat.setText(String.valueOf(character.getEarth()));
+        iceStat.setText(String.valueOf(character.getIce()));
+        fireStat.setText(String.valueOf(character.getFire()));
+        waterStat.setText(String.valueOf(character.getWater()));
     }
 
     /**
@@ -39,7 +46,7 @@ public class training extends javax.swing.JFrame {
         waterStat = new javax.swing.JLabel();
         iceStat = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        elemSelect = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -61,7 +68,7 @@ public class training extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Which Area Shall You Train In?");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EARTH", "FIRE", "WATER", "AIR" }));
+        elemSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EARTH", "FIRE", "WATER", "AIR" }));
 
         jLabel2.setText("Train to Improve Your Element Scores ");
 
@@ -111,7 +118,7 @@ public class training extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(169, 169, 169)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(elemSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 17, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -159,7 +166,7 @@ public class training extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1)
+                        .addComponent(elemSelect)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(trainBttn)
                         .addGap(12, 12, 12))))
@@ -170,25 +177,46 @@ public class training extends javax.swing.JFrame {
 
     private void trainBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trainBttnActionPerformed
         // TODO add your handling code here:
-        System.out.println(character.getUserName());
-        if(waterForm == null){
-            System.out.println("testing yeet");
-            waterForm = new water(character);
-        }    
-        this.setVisible(false); 
-        waterForm.setVisible(true);
+        if(elemSelect.getSelectedItem() == "WATER"){
+            if(waterForm == null){
+                waterForm = new water(character);
+            }    
+            this.setVisible(false); 
+            waterForm.setVisible(true);
+        }
+        else if(elemSelect.getSelectedItem() == "EARTH"){
+            if(earthForm == null){
+                earthForm = new earth(character);
+            }    
+            this.setVisible(false); 
+            earthForm.setVisible(true);
+        }
+        else if(elemSelect.getSelectedItem() == "FIRE"){
+            if(fireForm == null){
+                fireForm = new fire(character);
+            }    
+            this.setVisible(false); 
+            fireForm.setVisible(true);
+        }
+        else{
+            if(iceForm == null){
+                iceForm = new ice(character);
+            }    
+            this.setVisible(false); 
+            iceForm.setVisible(true);
+        }
     }//GEN-LAST:event_trainBttnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel earthStat;
+    private javax.swing.JComboBox<String> elemSelect;
     private javax.swing.JLabel fireStat;
     private javax.swing.JLabel iceStat;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
