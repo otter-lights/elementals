@@ -55,6 +55,7 @@ public abstract class being {
         this.water = w;
     }
     
+    @Override
     public String toString(){
         return "Name: " + this.name 
             + "\nFire: " + this.fire 
