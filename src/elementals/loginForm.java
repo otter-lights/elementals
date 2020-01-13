@@ -132,15 +132,19 @@ public class loginForm extends javax.swing.JFrame {
                 String e = b.readLine();
                 String i = b.readLine();
                 String w = b.readLine();
+                
+                String sExp = b.readLine();
 
                 Double fire = Double.parseDouble(f);
                 Double earth = Double.parseDouble(e);
                 Double ice = Double.parseDouble(i);
                 Double water = Double.parseDouble(w);
+                
+                int exp = Integer.parseInt(sExp);
 
                 Color colour = new Color(Integer.parseInt(sR), Integer.parseInt(sG), Integer.parseInt(sB));
 
-                character = new player(uname, pword, charName, iR, iG, iB, fire, earth, ice, water);
+                character = new player(uname, pword, charName, iR, iG, iB, fire, earth, ice, water, exp);
                 
                 System.out.println("Correct Password");
                 System.out.println(character.getUserName());
