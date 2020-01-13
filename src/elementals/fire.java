@@ -5,18 +5,25 @@
  */
 package elementals;
 
+import java.util.Random;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author rachelroutly
  */
 public class fire extends javax.swing.JFrame {
-
+    
+    player character;
+    home house;
+    training train;
     /**
      * Creates new form fire
      * @param c
      */
     public fire(player c) {
         initComponents();
+        character = c;
     }
 
     /**
@@ -173,7 +180,131 @@ public class fire extends javax.swing.JFrame {
         this.setVisible(false);
         train.setVisible(true);
     }//GEN-LAST:event_submitBttnActionPerformed
-
+        String[] questions = {"The climate is made of five components, which relates to rocks and sediments?", 
+                          "Offshore earthquakes can cause ________", 
+                          "______% of the energy in an earthquake is seismic", 
+                          "Which is not a normal type of fault", 
+                          "Earthquales from normal faults generally have a magnitude less than ______", 
+                          "An 8.6 magnitude earthquake releases the same energy as _______ bombs from WW2", 
+                          "How many major tectonic plates are there?", 
+                          "How many minor tectonic plates are there?",
+                          "Which is not a classification of tectonic plate?",
+                          "What is the minimum amount of time to form 1 inch of top soil?",
+                          "There are _______ different types of soil in the US", 
+                          "What type of tree changes the acidity of its soil to prevent other growth?", 
+                          "In a _________ of healthy soil there are more organisms than humans on earth.",
+                          "In North America (as of 2003) ______ soil series have gone extinct",
+                          "Which is not a common threat to soil health?"};
+    
+    String[] correct = {"lithosphere",
+                        "tsunamis",
+                        "10",
+                        "horizontal",
+                        "7",
+                        "10,000",
+                        "7",
+                        "10",
+                        "nano",
+                        "500 years",
+                        "70,000",
+                        "Black Walnut",
+                        "Teaspoon",
+                        "33",
+                        "Over Watering"};
+    
+    String[] wrong1 =  {"atmosphere",
+                        "hurricanes",
+                        "10",
+                        "normal",
+                        "2",
+                        "100",
+                        "10",
+                        "7",
+                        "major",
+                        "10 years",
+                        "10,000",
+                        "Oak",
+                        "Litre",
+                        "4",
+                        "Urbanization"};
+    
+    String[] wrong2 =  {"cryosphere",
+                        "tornados",
+                        "50",
+                        "reverse",
+                        "13",
+                        "1,000",
+                        "18",
+                        "8",
+                        "minor",
+                        "50 years",
+                        "30,000",
+                        "Cherry",
+                        "Cup",
+                        "27",
+                        "Acidification"};
+    
+    String[] wrong3 =  {"biosphere",
+                        "hail",
+                        "85",
+                        "strike-slip",
+                        "9",
+                        "1",
+                        "5",
+                        "19",
+                        "micro",
+                        "100 years",
+                        "90,000",
+                        "Maple",
+                        "Tablespoon",
+                        "46",
+                        "Overgrazing"};
+    
+    Random rand = new Random(); 
+    int numOne = rand.nextInt((15 - 1) + 1) + 1;
+    int numTwo = rand.nextInt((15 - 1) + 1) + 1;
+    int numThree = rand.nextInt((15 - 1) + 1) + 1;
+    
+    public void chooseQuestions(){           
+        questionOne.setText(questions[numOne]);
+        ranOrder(numOne, answerOne);
+        
+        questionTwo.setText(questions[numTwo]);
+        ranOrder(numTwo, answerTwo);
+        
+        questionThree.setText(questions[numThree]);
+        ranOrder(numThree, answerThree);
+    }
+    
+    public void ranOrder(int n, JComboBox<String> question){
+        Random rand = new Random(); 
+        int order = rand.nextInt((4 - 1) + 1) + 1;
+        if(order <= 1){
+            question.addItem(correct[n]);
+            question.addItem(wrong1[n]);
+            question.addItem(wrong2[n]);
+            question.addItem(wrong3[n]);
+        }   
+        else if(order <= 2){           
+            question.addItem(wrong1[n]);
+            question.addItem(correct[n]);
+            question.addItem(wrong2[n]);
+            question.addItem(wrong3[n]);
+        } 
+        else if(order <= 3){
+            question.addItem(wrong1[n]);           
+            question.addItem(wrong2[n]);
+            question.addItem(correct[n]);
+            question.addItem(wrong3[n]);
+        }
+        else{
+            question.addItem(wrong1[n]);            
+            question.addItem(wrong2[n]);
+            question.addItem(wrong3[n]);
+            question.addItem(correct[n]);
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> answerOne;
