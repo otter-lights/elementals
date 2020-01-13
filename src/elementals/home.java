@@ -7,17 +7,30 @@ package elementals;
 
 /**
  *
- * @author rachelroutly
+ * @author nathan
  */
 public class home extends javax.swing.JFrame {
+
     player character;
     training train;
+    
     /**
-     * Creates new form home1
+     * Creates new form HomeScreen
      */
     public home(player c) {
+        
         initComponents();
         character = c;
+        
+        
+        lblName.setText("Name: " + c.getCharName());
+        lblEarth.setText("Earth: " + c.getEarth());
+        lblFire.setText("Fire: " + c.getFire());
+        lblIce.setText("Ice: " + c.getIce());
+        lblWater.setText("Water: " + c.getWater());
+        lblHealth.setText("Health: " + 3);
+        //maybe later
+        //lblLevel.setText("Level: " + level);
     }
 
     /**
@@ -29,40 +42,118 @@ public class home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblName = new javax.swing.JLabel();
+        btnBattle = new javax.swing.JButton();
+        btnTrain = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        lblEarth = new javax.swing.JLabel();
+        lblFire = new javax.swing.JLabel();
+        lblWater = new javax.swing.JLabel();
+        lblIce = new javax.swing.JLabel();
+        lblHealth = new javax.swing.JLabel();
+        lblLevel = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("gang");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        lblName.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        lblName.setText("Name: ");
+
+        btnBattle.setText("Battle");
+        btnBattle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBattleActionPerformed(evt);
             }
         });
+
+        btnTrain.setText("Train");
+        btnTrain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTrainActionPerformed(evt);
+            }
+        });
+
+        btnLogout.setText("Logout");
+
+        lblEarth.setText("Earth/Physical: ");
+
+        lblFire.setText("Fire: ");
+
+        lblWater.setText("Water: ");
+
+        lblIce.setText("Ice: ");
+
+        lblHealth.setText("Health: ");
+
+        lblLevel.setText("Level: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jButton1)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblLevel)
+                            .addComponent(lblFire)
+                            .addComponent(lblWater)
+                            .addComponent(lblIce)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEarth)
+                                    .addComponent(lblHealth))
+                                .addGap(18, 49, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnTrain, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnBattle, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblName))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(jButton1)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblName)
+                    .addComponent(lblEarth))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblFire)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblWater)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblIce)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHealth)
+                    .addComponent(btnTrain)
+                    .addComponent(btnBattle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblLevel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void btnTrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrainActionPerformed
         System.out.println(character.getUserName());
         if(train == null){
             System.out.println("test");
@@ -70,11 +161,74 @@ public class home extends javax.swing.JFrame {
         }    
         this.setVisible(false); 
         train.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnTrainActionPerformed
 
+    private void btnBattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBattleActionPerformed
+        this.setVisible(false);
+        new battle().setVisible(true);
+    }//GEN-LAST:event_btnBattleActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton btnBattle;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnTrain;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblEarth;
+    private javax.swing.JLabel lblFire;
+    private javax.swing.JLabel lblHealth;
+    private javax.swing.JLabel lblIce;
+    private javax.swing.JLabel lblLevel;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblWater;
     // End of variables declaration//GEN-END:variables
 }
