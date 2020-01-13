@@ -9,13 +9,13 @@ package elementals;
  *
  * @author rachelroutly
  */
-public class home extends javax.swing.JFrame {
+public class rachelMain extends javax.swing.JFrame {
     player character;
     training train;
     /**
      * Creates new form home1
      */
-    public home(player c) {
+    public rachelMain(player c) {
         initComponents();
         character = c;
     }

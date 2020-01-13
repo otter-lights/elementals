@@ -15,7 +15,7 @@ import javax.swing.JComboBox;
 public class water extends javax.swing.JFrame {
 
     player character;
-    home house;
+    rachelMain house;
     training train;
     /**
      * Creates new form water
@@ -176,7 +176,7 @@ public class water extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(house == null){
             System.out.println("yeet");
-            house = new home(character);
+            house = new rachelMain(character);
         }    
         this.setVisible(false);
         house.setVisible(true); 
