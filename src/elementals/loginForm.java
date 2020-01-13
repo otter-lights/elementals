@@ -20,7 +20,7 @@ public class loginForm extends javax.swing.JFrame {
      */
     start starter;
     creator create;
-    rachelMain house;
+    home house;
     
     public loginForm(start s) {
         initComponents();
@@ -146,7 +146,7 @@ public class loginForm extends javax.swing.JFrame {
                 System.out.println(character.getUserName());
                 if(house == null){
                     System.out.println("test");
-                    house = new rachelMain(character);
+                    house = new home(character);
                 }    
                 this.setVisible(false); 
                 house.setVisible(true);  

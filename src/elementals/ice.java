@@ -15,7 +15,7 @@ import javax.swing.JComboBox;
 public class ice extends javax.swing.JFrame {
     
     player character;
-    rachelMain house;
+    home house;
     training train;
     /**
      * Creates new form ice
@@ -135,7 +135,7 @@ public class ice extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(house == null){
             System.out.println("yeet");
-            house = new rachelMain(character);
+            house = new home(character);
         }
         this.setVisible(false);
         house.setVisible(true);
