@@ -11,11 +11,23 @@ package elementals;
  */
 public class home extends javax.swing.JFrame {
 
+    player c;
+    
     /**
      * Creates new form home
      */
-    public home(player character) {
+    public home(player a) {
         initComponents();
+        
+        c = a;
+        
+        lblName.setText("Name: " + c.getCharName());
+        lblEarth.setText("Earth: " + c.getEarth());
+        lblFire.setText("Fire: " + c.getFire());
+        lblIce.setText("Ice: " + c.getIce());
+        lblWater.setText("Water: " + c.getWater());
+        lblHits.setText("Hitpoints: " + 3);
+        //lblLevel.setText("Level: " + level);
         
     }
 
@@ -28,23 +40,127 @@ public class home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblEarth = new javax.swing.JLabel();
+        lblFire = new javax.swing.JLabel();
+        lblWater = new javax.swing.JLabel();
+        lblIce = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        aniCharacter = new javax.swing.JLabel();
+        btnTrain = new javax.swing.JButton();
+        btnBattle = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        lblHits = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblEarth.setText("Earth:");
+
+        lblFire.setText("Fire:");
+
+        lblWater.setText("Water:");
+
+        lblIce.setText("Ice:");
+
+        lblName.setText("Name:");
+        lblName.setBounds(new java.awt.Rectangle(-32419, -32762, 100, 16));
+
+        aniCharacter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btnTrain.setText("Train Stats");
+        btnTrain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTrainActionPerformed(evt);
+            }
+        });
+
+        btnBattle.setText("To Next Battle");
+        btnBattle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBattleActionPerformed(evt);
+            }
+        });
+
+        btnLogout.setText("Logout");
+
+        lblHits.setText("Hitpoints:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblWater, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblFire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnTrain, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblHits)
+                            .addComponent(btnLogout))
+                        .addGap(18, 18, 18))
+                    .addComponent(lblEarth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(aniCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBattle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEarth)
+                    .addComponent(lblName))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblFire)
+                        .addGap(20, 20, 20)
+                        .addComponent(lblWater)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblIce)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(lblHits))
+                    .addComponent(aniCharacter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTrain)
+                    .addComponent(btnBattle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLogout)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnTrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrainActionPerformed
+        
+        this.setVisible(false);
+        new training(c).setVisible(true);
+    }//GEN-LAST:event_btnTrainActionPerformed
+
+    private void btnBattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBattleActionPerformed
+        this.setVisible(false);
+        new battle(c).setVisible(true);
+    }//GEN-LAST:event_btnBattleActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel aniCharacter;
+    private javax.swing.JButton btnBattle;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnTrain;
+    private javax.swing.JLabel lblEarth;
+    private javax.swing.JLabel lblFire;
+    private javax.swing.JLabel lblHits;
+    private javax.swing.JLabel lblIce;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblWater;
     // End of variables declaration//GEN-END:variables
 }
