@@ -263,7 +263,7 @@ public class creator extends javax.swing.JFrame {
     
     Random ran = new Random();
     double fire, earth, ice, water;
-    int red, green, blue;
+    int red, green, blue, exp;
     
     private void fireBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fireBttnActionPerformed
         double num = ran.nextDouble() * 10.0;        
@@ -307,9 +307,9 @@ public class creator extends javax.swing.JFrame {
         String password = pWordField.getText();
         String characterName = charNameField.getText();
         Color color = colorChooser.getColor();
+        exp = 0;
         
-        
-        character = new player(username, password, characterName, red, blue, green, fire, earth, ice, water);
+        character = new player(username, password, characterName, red, blue, green, fire, earth, ice, water, exp);
             
         try{
             File file = new File("src//elementals//character_saves//" + uNameField.getText() + ".txt");
@@ -332,7 +332,8 @@ public class creator extends javax.swing.JFrame {
                             fire + "\n" + 
                             earth + "\n" + 
                             ice + "\n" + 
-                            water);
+                            water + "\n" +
+                            exp);
             writer.close();
             }
         catch(IOException e){

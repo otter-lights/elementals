@@ -15,9 +15,10 @@ public class player {
     double fireStat, earthStat, iceStat, waterStat;
     String charName, username, password;
     Color color;
+    int exp;
     
     
-    public player(String uName, String pWord, String name, int red, int green, int blue, double f, double e, double i, double w){
+    public player(String uName, String pWord, String name, int red, int green, int blue, double f, double e, double i, double w, int xp){
         username = uName;
         password = pWord;
         charName = name;
@@ -27,6 +28,7 @@ public class player {
         earthStat = e;
         iceStat = i;
         waterStat = w;
+        exp = xp;
     } 
     public String getUserName(){
         return(username);
@@ -75,7 +77,13 @@ public class player {
     }
     public void setWater(double w){
         waterStat = w;
-    }   
+    } 
+    public int getXP(){
+        return exp;
+    }
+    public void setXP(int xp){
+        exp = xp;
+    }
     @Override
     public String toString(){
         return(username + "\n" + 
