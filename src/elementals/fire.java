@@ -24,6 +24,8 @@ public class fire extends javax.swing.JFrame {
     public fire(player c) {
         initComponents();
         character = c;
+        chooseQuestions();
+        fireVal.setText(String.valueOf(character.getFire()));
     }
 
     /**
@@ -155,7 +157,7 @@ public class fire extends javax.swing.JFrame {
         if(correct[numThree] == answerThree.getSelectedItem()){
             numCorrect++;
         }
-        double d = character.getWater();
+        double d = character.getFire();
         System.out.println(d);
 
         switch (numCorrect) {
@@ -180,85 +182,85 @@ public class fire extends javax.swing.JFrame {
         this.setVisible(false);
         train.setVisible(true);
     }//GEN-LAST:event_submitBttnActionPerformed
-        String[] questions = {"The climate is made of five components, which relates to rocks and sediments?", 
-                          "Offshore earthquakes can cause ________", 
-                          "______% of the energy in an earthquake is seismic", 
-                          "Which is not a normal type of fault", 
-                          "Earthquales from normal faults generally have a magnitude less than ______", 
-                          "An 8.6 magnitude earthquake releases the same energy as _______ bombs from WW2", 
-                          "How many major tectonic plates are there?", 
-                          "How many minor tectonic plates are there?",
-                          "Which is not a classification of tectonic plate?",
-                          "What is the minimum amount of time to form 1 inch of top soil?",
-                          "There are _______ different types of soil in the US", 
-                          "What type of tree changes the acidity of its soil to prevent other growth?", 
-                          "In a _________ of healthy soil there are more organisms than humans on earth.",
-                          "In North America (as of 2003) ______ soil series have gone extinct",
-                          "Which is not a common threat to soil health?"};
+        String[] questions = {"Three to four billion years ago the sun emitted how much power?", 
+                                "How has fire NOT been used by humans?", 
+                                "Without _____ fire will generally contain itself", 
+                                "What plant can light itself on fire?", 
+                                "95% of structural fires in ______ are due to arson", 
+                                "What type of forest fire spreads by burning tree tops?", 
+                                "What winds spread most fires in southern california?", 
+                                "______ % of all wildfires are caused by humans",
+                                "Around _____ % of lightning strikes cause fire",
+                                "What is the standard measurement unit of heat, according to the SI?",
+                                "_____ of all fire deaths happen in a home where there is no fire alarm", 
+                                "Burning Mountain in Australia has had underground coals burning for how many years?", 
+                                "What country holds the record for the longest campfire?",
+                                "Without gravity what shape would fire burn in?",
+                                "Which compound does NOT turn fire green?"};
     
-    String[] correct = {"lithosphere",
-                        "tsunamis",
-                        "10",
-                        "horizontal",
-                        "7",
-                        "10,000",
-                        "7",
-                        "10",
-                        "nano",
-                        "500 years",
-                        "70,000",
-                        "Black Walnut",
-                        "Teaspoon",
-                        "33",
-                        "Over Watering"};
+    String[] correct = {"70% of today",
+                        "Sustenance",
+                        "Gravity",
+                        "Dictamnus albus",
+                        "Detroit",
+                        "Crown Fire",
+                        "Santa Ana",
+                        "90",
+                        "15",
+                        "Joules",
+                        "2/3",
+                        "6000",
+                        "Netherlands",
+                        "Circle",
+                        "Calcium"};
     
-    String[] wrong1 =  {"atmosphere",
-                        "hurricanes",
-                        "10",
-                        "normal",
-                        "2",
-                        "100",
-                        "10",
-                        "7",
-                        "major",
-                        "10 years",
-                        "10,000",
-                        "Oak",
-                        "Litre",
-                        "4",
-                        "Urbanization"};
-    
-    String[] wrong2 =  {"cryosphere",
-                        "tornados",
+    String[] wrong1 =  {"50% of today",
+                        "Rituals",
+                        "Salts",
+                        "Acroptilon repens",
+                        "Chicago",
+                        "Head Fire",
+                        "Cali Breath",
                         "50",
-                        "reverse",
-                        "13",
-                        "1,000",
-                        "18",
-                        "8",
-                        "minor",
-                        "50 years",
-                        "30,000",
-                        "Cherry",
-                        "Cup",
-                        "27",
-                        "Acidification"};
+                        "30",
+                        "Celcius",
+                        "1/2",
+                        "2500",
+                        "England",
+                        "Square",
+                        "Copper Sulfate"};
     
-    String[] wrong3 =  {"biosphere",
-                        "hail",
-                        "85",
-                        "strike-slip",
-                        "9",
-                        "1",
-                        "5",
-                        "19",
-                        "micro",
-                        "100 years",
-                        "90,000",
-                        "Maple",
-                        "Tablespoon",
-                        "46",
-                        "Overgrazing"};
+    String[] wrong2 =  {"The Same",
+                        "Cooking",
+                        "Water",
+                        "Grayia spinosa",
+                        "New York",
+                        "Crest Fire",
+                        "Santa Maria",
+                        "60",
+                        "45",
+                        "Farenheight",
+                        "3/4",
+                        "4 000",
+                        "America",
+                        "Teardrop",
+                        "Borax"};
+    
+    String[] wrong3 =  {"124% of today",
+                        "Signaling",
+                        "Nitrogen",
+                        "Holodiscus discolor",
+                        "Florida",
+                        "Leaf Fire",
+                        "El Nino",
+                        "80",
+                        "60",
+                        "Kelvin",
+                        "100%",
+                        "10 000",
+                        "Belgium",
+                        "Triangle",
+                        "Boric Acid"};
     
     Random rand = new Random(); 
     int numOne = rand.nextInt((15 - 1) + 1) + 1;

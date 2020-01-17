@@ -158,7 +158,7 @@ public class earth extends javax.swing.JFrame {
         if(correct[numThree] == answerThree.getSelectedItem()){
             numCorrect++;
         }
-        double d = character.getWater();
+        double d = character.getFire();
         System.out.println(d);
 
         switch (numCorrect) {
@@ -184,7 +184,7 @@ public class earth extends javax.swing.JFrame {
         train.setVisible(true);
     }//GEN-LAST:event_submitBttnActionPerformed
 
-    String[] questions = {"The climate is made of five components, which relates to rocks and sediments?", 
+String[] questions = {"The climate is made of five components, which relates to rocks and sediments?", 
                           "Offshore earthquakes can cause ________", 
                           "______% of the energy in an earthquake is seismic", 
                           "Which is not a normal type of fault", 

@@ -24,6 +24,8 @@ public class ice extends javax.swing.JFrame {
     public ice(player c) {
         initComponents();
         character = c;
+        chooseQuestions();
+        iceVal.setText(String.valueOf(character.getIce()));
     }
 
     /**
@@ -36,7 +38,7 @@ public class ice extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        fireVal = new javax.swing.JLabel();
+        iceVal = new javax.swing.JLabel();
         homeBttn = new javax.swing.JButton();
         questionOne = new javax.swing.JLabel();
         questionTwo = new javax.swing.JLabel();
@@ -51,7 +53,7 @@ public class ice extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/ice-icon.png"))); // NOI18N
         jLabel1.setText("  :");
 
-        fireVal.setText("       ");
+        iceVal.setText("       ");
 
         homeBttn.setText("Back to Home");
         homeBttn.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +85,7 @@ public class ice extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(fireVal)
+                        .addComponent(iceVal)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -108,7 +110,7 @@ public class ice extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fireVal))
+                    .addComponent(iceVal))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(questionOne)
@@ -181,85 +183,85 @@ public class ice extends javax.swing.JFrame {
         train.setVisible(true);
     }//GEN-LAST:event_submitBttnActionPerformed
     
-        String[] questions = {"The climate is made of five components, which relates to rocks and sediments?", 
-                          "Offshore earthquakes can cause ________", 
-                          "______% of the energy in an earthquake is seismic", 
-                          "Which is not a normal type of fault", 
-                          "Earthquales from normal faults generally have a magnitude less than ______", 
-                          "An 8.6 magnitude earthquake releases the same energy as _______ bombs from WW2", 
-                          "How many major tectonic plates are there?", 
-                          "How many minor tectonic plates are there?",
-                          "Which is not a classification of tectonic plate?",
-                          "What is the minimum amount of time to form 1 inch of top soil?",
-                          "There are _______ different types of soil in the US", 
-                          "What type of tree changes the acidity of its soil to prevent other growth?", 
-                          "In a _________ of healthy soil there are more organisms than humans on earth.",
-                          "In North America (as of 2003) ______ soil series have gone extinct",
-                          "Which is not a common threat to soil health?"};
+    String[] questions = {"The climate is made of five components, which ice?", 
+                          "___% of land area is covered in glacial ice ", 
+                          "What colour of glacier indicated trapped air bubbles beneath the ice?", 
+                          "What is the longest glacier in North America?", 
+                          "Where are ice shelves NOT found?", 
+                          "Which is NOT a common cause of ice shelf collapse?", 
+                          "Floating chunks of ice must be greater than ___ feet across to be considered an iceberg", 
+                          "What language has over 50 words for ice? ",
+                          "Frozen ice expands about _____ when frozen",
+                          "The first formal ice age theory was presented in what year?",
+                          "Which is NOT the name of an ice age?", 
+                          "Melting ice sheets often cause ", 
+                          "When were the first identical snow crystals found?",
+                          "Where did the largest recorded snowball fight take place?",
+                          "_____ % of fresh water on earth is frozen"};
     
-    String[] correct = {"lithosphere",
-                        "tsunamis",
+    String[] correct = {"Cryosphere",
                         "10",
-                        "horizontal",
-                        "7",
-                        "10,000",
-                        "7",
-                        "10",
-                        "nano",
-                        "500 years",
-                        "70,000",
-                        "Black Walnut",
-                        "Teaspoon",
-                        "33",
-                        "Over Watering"};
-    
-    String[] wrong1 =  {"atmosphere",
-                        "hurricanes",
-                        "10",
-                        "normal",
-                        "2",
-                        "100",
-                        "10",
-                        "7",
-                        "major",
-                        "10 years",
-                        "10,000",
-                        "Oak",
-                        "Litre",
-                        "4",
-                        "Urbanization"};
-    
-    String[] wrong2 =  {"cryosphere",
-                        "tornados",
-                        "50",
-                        "reverse",
-                        "13",
-                        "1,000",
-                        "18",
-                        "8",
-                        "minor",
-                        "50 years",
-                        "30,000",
-                        "Cherry",
-                        "Cup",
-                        "27",
-                        "Acidification"};
-    
-    String[] wrong3 =  {"biosphere",
-                        "hail",
-                        "85",
-                        "strike-slip",
-                        "9",
-                        "1",
+                        "white",
+                        "Bering Glacier",
+                        "Iceland",
+                        "Human Exploration",
                         "5",
-                        "19",
-                        "micro",
-                        "100 years",
-                        "90,000",
-                        "Maple",
-                        "Tablespoon",
-                        "46",
-                        "Overgrazing"};
+                        "Inuktitut",
+                        "9%",
+                        "1837",
+                        "Glaciatial Shift",
+                        "Earthquakes",
+                        "1988",
+                        "Saskatoon",
+                        "80"};
+    
+    String[] wrong1 =  {"Atmosphere",
+                        "5",
+                        "Blue",
+                        "Black Rapids",
+                        "Antartica",
+                        "Warming Sea Ice",
+                        "10",
+                        "Iroquoian",
+                        "1L",
+                        "1946",
+                        "Karoo",
+                        "Volcanoes",
+                        "1843",
+                        "Nova Scotia",
+                        "50"};
+    
+    String[] wrong2 =  {"Biosphere",
+                        "25",
+                        "Green",
+                        "Queets Glacier",
+                        "Ellesmere Island",
+                        "Climate Change",
+                        "15",
+                        "Zuni",
+                        "7%",
+                        "1795",
+                        "Huronian",
+                        "Forest Fires",
+                        "1934",
+                        "Norway",
+                        "60"};
+    
+    String[] wrong3 =  {"Lithosphere",
+                        "30",
+                        "Black",
+                        "Honeycomb Glacier",
+                        "Canada",
+                        "Meltwater Ponds",
+                        "20",
+                        "Huave",
+                        "500mL",
+                        "1923",
+                        "Quaternary Glaciation",
+                        "Tornados",
+                        "1962",
+                        "Boston",
+                        "70"};
     
     Random rand = new Random(); 
     int numOne = rand.nextInt((15 - 1) + 1) + 1;
@@ -311,8 +313,8 @@ public class ice extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> answerOne;
     private javax.swing.JComboBox<String> answerThree;
     private javax.swing.JComboBox<String> answerTwo;
-    private javax.swing.JLabel fireVal;
     private javax.swing.JButton homeBttn;
+    private javax.swing.JLabel iceVal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel questionOne;
     private javax.swing.JLabel questionThree;
