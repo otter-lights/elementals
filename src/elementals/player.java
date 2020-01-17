@@ -19,6 +19,7 @@ public class player {
     
     
     public player(String uName, String pWord, String name, int red, int green, int blue, double f, double e, double i, double w, int xp){
+        
         username = uName;
         password = pWord;
         charName = name;

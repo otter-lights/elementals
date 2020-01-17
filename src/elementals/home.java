@@ -7,7 +7,7 @@ package elementals;
 
 /**
  *
- * @author nathan
+ * @author NathanFeenstra
  */
 public class home extends javax.swing.JFrame {
 
