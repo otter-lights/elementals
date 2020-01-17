@@ -4,16 +4,21 @@
  * and open the template in the editor.
  */
 package elementals;
-
-import java.awt.Image;
-import java.awt.Toolkit;
+//necessary imports for file reading
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import javax.imageio.ImageIO;
+//necessary imports for changing label icons
 import javax.swing.ImageIcon;
-import javax.swing.JApplet;
+//elements from the elements package
+import Elements.Element;
+import Elements.Fire;
+import Elements.Water;
+import Elements.Ice;
+import Elements.Earth;
+//how the computer decides things
+import java.util.Random;
+
 
 /**
  *
@@ -32,8 +37,8 @@ public class battle extends javax.swing.JFrame {
         initComponents();
         
         c = a;
-        
         level = c.getXP();
+        
         
         if(level < 4){
             fight("Blob-Boy");
@@ -87,11 +92,27 @@ public class battle extends javax.swing.JFrame {
         
     }
     
-    /*
+    
     public Element monsterAttack(){
+        Random ran = new Random();
+        int choice = ran.nextInt(4);
         
+        switch(choice){
+            case 0:
+                return new Earth();
+            case 1:
+                return new Fire();
+            case 2:
+                return new Water();
+            case 3:
+                return new Ice();
+            default:
+                //just in case something bad happens the game is still playable
+                System.out.println("Something went very wrong here (monsterAttack randomizer)");
+                return new Earth();
+        }
     }
-    */
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -110,11 +131,11 @@ public class battle extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnEarth = new javax.swing.JButton();
+        btnFire = new javax.swing.JButton();
+        btnWater = new javax.swing.JButton();
+        btnIce = new javax.swing.JButton();
+        btnFlee = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -144,15 +165,15 @@ public class battle extends javax.swing.JFrame {
 
         jLabel8.setText("Actions");
 
-        jButton1.setText("Earth");
+        btnEarth.setText("Earth");
 
-        jButton2.setText("Fire");
+        btnFire.setText("Fire");
 
-        jButton3.setText("Water");
+        btnWater.setText("Water");
 
-        jButton4.setText("Ice");
+        btnIce.setText("Ice");
 
-        jButton5.setText("Flee");
+        btnFlee.setText("Flee");
 
         jLabel9.setText("Opponent");
 
@@ -189,14 +210,14 @@ public class battle extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btnWater, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                    .addComponent(btnEarth, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btnFire, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                    .addComponent(btnIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnFlee, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
@@ -211,7 +232,7 @@ public class battle extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFlee, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -237,12 +258,12 @@ public class battle extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton2))
+                                    .addComponent(btnEarth)
+                                    .addComponent(btnFire))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton4)
-                                    .addComponent(jButton3)))
+                                    .addComponent(btnIce)
+                                    .addComponent(btnWater)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -258,11 +279,11 @@ public class battle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnEarth;
+    private javax.swing.JButton btnFire;
+    private javax.swing.JButton btnFlee;
+    private javax.swing.JButton btnIce;
+    private javax.swing.JButton btnWater;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
