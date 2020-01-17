@@ -5,13 +5,26 @@
  */
 package elementals;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JApplet;
+
 /**
  *
- * @author nathan
+ * @author NathanFeenstra
  */
 public class battle extends javax.swing.JFrame {
 
     player c;
+    int level;
+    ImageIcon ii;
+    
     /**
      * Creates new form battle
      */
@@ -19,7 +32,65 @@ public class battle extends javax.swing.JFrame {
         initComponents();
         
         c = a;
+        
+        level = c.getXP();
+        
+        if(level < 4){
+            fight("Blob-Boy");
+        }else if(level < 8){
+            fight("Cloud-Clops");
+        }else if(level < 12){
+            fight("Shadow-Knight");
+        }else{
+            
+        }
+        
     }
+    
+    public void fight(String thing){
+        try{
+            FileReader fr = new FileReader("src//monsters//" + thing + ".txt");
+            BufferedReader br = new BufferedReader(fr);
+            
+            String monName = br.readLine();
+            
+            String h = br.readLine();
+            
+            int health = Integer.parseInt(h);
+            
+            String f = br.readLine();
+            String e = br.readLine();
+            String i = br.readLine();
+            String w = br.readLine();
+            
+            double fire = Double.parseDouble(f);
+            double earth = Double.parseDouble(e);
+            double ice = Double.parseDouble(i);
+            double water = Double.parseDouble(w);
+            
+            String x = br.readLine();
+            
+            int exp = Integer.parseInt(x);
+            
+            
+            
+            
+        }catch(IOException e){
+            System.out.println(e + ": Error reading monster file: " + thing);
+        }
+        // i dont know why this no work
+        try{
+            lblMonster.setIcon(new ImageIcon("src//elementals.images//" + thing + ".png"));
+        }catch(Exception e){
+            System.out.println("Ahh, we had an error: " + e);
+        }
+        lblMonster.setIcon(new ImageIcon("src//elementals.images//" + thing + ".png"));
+        
+        
+        
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,10 +102,10 @@ public class battle extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblPlayerName = new javax.swing.JLabel();
+        lblPLayer = new javax.swing.JLabel();
+        lblMonster = new javax.swing.JLabel();
+        lblMonName = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -54,13 +125,17 @@ public class battle extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Battle");
 
-        jLabel2.setText("Player");
+        lblPlayerName.setText("Player");
 
-        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblPLayer.setBackground(new java.awt.Color(0, 0, 0));
+        lblPLayer.setForeground(new java.awt.Color(255, 255, 255));
+        lblPLayer.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblPLayer.setBounds(new java.awt.Rectangle(100, 200, 200, 0));
+        lblPLayer.setOpaque(true);
 
-        jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblMonster.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel5.setText("Monster");
+        lblMonName.setText("Monster");
 
         jLabel6.setForeground(new java.awt.Color(204, 0, 0));
         jLabel6.setText("❤ ❤ ❤");
@@ -99,14 +174,14 @@ public class battle extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPlayerName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPLayer, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(lblMonName)
+                            .addComponent(lblMonster, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,12 +215,12 @@ public class battle extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5))
+                            .addComponent(lblPlayerName)
+                            .addComponent(lblMonName))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblMonster, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPLayer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -190,13 +265,13 @@ public class battle extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblMonName;
+    private javax.swing.JLabel lblMonster;
+    private javax.swing.JLabel lblPLayer;
+    private javax.swing.JLabel lblPlayerName;
     // End of variables declaration//GEN-END:variables
 }
