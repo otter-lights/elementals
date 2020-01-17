@@ -24,6 +24,9 @@ public class earth extends javax.swing.JFrame {
      */
     public earth(player c) {
         initComponents();
+        character = c;
+        chooseQuestions();
+        earthVal.setText(String.valueOf(character.getEarth()));
     }
 
     /**
