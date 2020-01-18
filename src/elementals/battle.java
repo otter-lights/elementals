@@ -43,9 +43,9 @@ public class battle extends javax.swing.JFrame {
         if(level < 4){
             fight("Blob-Boy");
         }else if(level < 8){
-            fight("Cloud-Clops");
+            fight("Spikes-Tiny");
         }else if(level < 12){
-            fight("Shadow-Knight");
+            fight("Shadow-Boi-Tiny");
         }else{
             
         }
