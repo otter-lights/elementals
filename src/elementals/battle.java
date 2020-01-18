@@ -18,6 +18,7 @@ import Elements.Ice;
 import Elements.Earth;
 //how the computer decides things
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -30,6 +31,11 @@ public class battle extends javax.swing.JFrame {
     int level;
     ImageIcon ii;
     
+    double monFire;
+    double monEarth;
+    double monIce;
+    double monWater;
+    
     /**
      * Creates new form battle
      */
@@ -39,13 +45,17 @@ public class battle extends javax.swing.JFrame {
         c = a;
         level = c.getXP();
         
+        btnEarth.setText("Earth: " + c.getEarth());
+        btnFire.setText("Fire: " + c.getFire());
+        btnWater.setText("Water: " + c.getWater());
+        btnIce.setText("Ice: " + c.getIce());
         
         if(level < 4){
             fight("Blob-Boy");
         }else if(level < 8){
-            fight("Spikes-Tiny");
+            fight("Spike");
         }else if(level < 12){
-            fight("Shadow-Boi-Tiny");
+            fight("Shadow");
         }else{
             
         }
@@ -54,6 +64,7 @@ public class battle extends javax.swing.JFrame {
     
     public void fight(String thing){
         try{
+            
             FileReader fr = new FileReader("src//monsters//" + thing + ".txt");
             BufferedReader br = new BufferedReader(fr);
             
@@ -63,22 +74,33 @@ public class battle extends javax.swing.JFrame {
             
             int health = Integer.parseInt(h);
             
+           String H = ""; 
+           
+           for(int i = 0; i < health; i++){
+               H += "❤ ";
+           }
+           
+           lblMonHealth.setText(H);
+           
+            
             String f = br.readLine();
             String e = br.readLine();
             String i = br.readLine();
             String w = br.readLine();
             
-            double fire = Double.parseDouble(f);
-            double earth = Double.parseDouble(e);
-            double ice = Double.parseDouble(i);
-            double water = Double.parseDouble(w);
+            monFire = Double.parseDouble(f);
+            monEarth = Double.parseDouble(e);
+            monIce = Double.parseDouble(i);
+            monWater = Double.parseDouble(w);
+            
+            lblEarth.setText("Earth: " + monEarth);
+            lblFire.setText("Fire: " + monFire);
+            lblWater.setText("Water: " + monWater);
+            lblIce.setText("Ice: " + monIce);
             
             String x = br.readLine();
             
             int exp = Integer.parseInt(x);
-            
-            
-            
             
         }catch(IOException e){
             System.out.println(e + ": Error reading monster file: " + thing);
@@ -89,7 +111,6 @@ public class battle extends javax.swing.JFrame {
         
         //set the players box to their color
         lblPlayer.setBackground(c.getUserColor());
-        
     }
     
     
@@ -128,19 +149,19 @@ public class battle extends javax.swing.JFrame {
         lblPlayer = new javax.swing.JLabel();
         lblMonster = new javax.swing.JLabel();
         lblMonName = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblPlayerHealth = new javax.swing.JLabel();
+        lblMonHealth = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnEarth = new javax.swing.JButton();
         btnFire = new javax.swing.JButton();
         btnWater = new javax.swing.JButton();
         btnIce = new javax.swing.JButton();
         btnFlee = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lblOpponent = new javax.swing.JLabel();
+        lblEarth = new javax.swing.JLabel();
+        lblFire = new javax.swing.JLabel();
+        lblWater = new javax.swing.JLabel();
+        lblIce = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,33 +178,58 @@ public class battle extends javax.swing.JFrame {
 
         lblMonName.setText("Monster");
 
-        jLabel6.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel6.setText("❤ ❤ ❤");
+        lblPlayerHealth.setForeground(new java.awt.Color(204, 0, 0));
+        lblPlayerHealth.setText("❤ ❤ ❤");
 
-        jLabel7.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel7.setText("❤ ❤ ❤");
+        lblMonHealth.setForeground(new java.awt.Color(204, 0, 0));
+        lblMonHealth.setText("❤ ❤ ❤");
 
         jLabel8.setText("Actions");
 
         btnEarth.setText("Earth");
+        btnEarth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEarthActionPerformed(evt);
+            }
+        });
 
         btnFire.setText("Fire");
+        btnFire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFireActionPerformed(evt);
+            }
+        });
 
         btnWater.setText("Water");
+        btnWater.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWaterActionPerformed(evt);
+            }
+        });
 
         btnIce.setText("Ice");
+        btnIce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIceActionPerformed(evt);
+            }
+        });
 
         btnFlee.setText("Flee");
+        btnFlee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFleeActionPerformed(evt);
+            }
+        });
 
-        jLabel9.setText("Opponent");
+        lblOpponent.setText("Opponent");
 
-        jLabel10.setText("Earth");
+        lblEarth.setText("Earth:");
 
-        jLabel11.setText("Fire");
+        lblFire.setText("Fire:");
 
-        jLabel12.setText("Water");
+        lblWater.setText("Water:");
 
-        jLabel13.setText("Ice");
+        lblIce.setText("Ice:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,7 +241,7 @@ public class battle extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPlayerHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPlayerName)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
@@ -204,27 +250,27 @@ public class battle extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblMonName)
                             .addComponent(lblMonster, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(lblMonHealth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnWater, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                                    .addComponent(btnEarth, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnFire, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                    .addComponent(btnEarth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnWater, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                                .addGap(3, 3, 3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnFire, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                                     .addComponent(btnIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnFlee, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lblOpponent, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(lblEarth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblFire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblWater, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -247,12 +293,12 @@ public class battle extends javax.swing.JFrame {
                                 .addGap(25, 25, 25)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                            .addComponent(lblPlayerHealth)
+                            .addComponent(lblMonHealth))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel9))
+                            .addComponent(lblOpponent))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -265,18 +311,41 @@ public class battle extends javax.swing.JFrame {
                                     .addComponent(btnIce)
                                     .addComponent(btnWater)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10)
+                                .addComponent(lblEarth)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11)
+                                .addComponent(lblFire)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)
+                                .addComponent(lblWater)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13)))))
+                                .addComponent(lblIce)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIceActionPerformed
+
+    private void btnWaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWaterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnWaterActionPerformed
+
+    private void btnEarthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEarthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEarthActionPerformed
+
+    private void btnFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFireActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFireActionPerformed
+
+    private void btnFleeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFleeActionPerformed
+        JOptionPane.showMessageDialog(null, "Coward");
+        
+         this.setVisible(false);
+         new home(c).setVisible(true);
+    }//GEN-LAST:event_btnFleeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEarth;
@@ -285,17 +354,17 @@ public class battle extends javax.swing.JFrame {
     private javax.swing.JButton btnIce;
     private javax.swing.JButton btnWater;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblEarth;
+    private javax.swing.JLabel lblFire;
+    private javax.swing.JLabel lblIce;
+    private javax.swing.JLabel lblMonHealth;
     private javax.swing.JLabel lblMonName;
     private javax.swing.JLabel lblMonster;
+    private javax.swing.JLabel lblOpponent;
     private javax.swing.JLabel lblPlayer;
+    private javax.swing.JLabel lblPlayerHealth;
     private javax.swing.JLabel lblPlayerName;
+    private javax.swing.JLabel lblWater;
     // End of variables declaration//GEN-END:variables
 }

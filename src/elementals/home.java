@@ -62,7 +62,6 @@ public class home extends javax.swing.JFrame {
         lblIce.setText("Ice:");
 
         lblName.setText("Name:");
-        lblName.setBounds(new java.awt.Rectangle(-32419, -32762, 100, 16));
 
         aniCharacter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -81,6 +80,11 @@ public class home extends javax.swing.JFrame {
         });
 
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         lblHits.setText("Hitpoints:");
 
@@ -146,9 +150,16 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTrainActionPerformed
 
     private void btnBattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBattleActionPerformed
+        
         this.setVisible(false);
         new battle(c).setVisible(true);
     }//GEN-LAST:event_btnBattleActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        
+        this.setVisible(false);
+        new start().setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
