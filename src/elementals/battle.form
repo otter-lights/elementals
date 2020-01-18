@@ -29,7 +29,7 @@
                   <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel6" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lblPlayerHealth" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="lblPlayerName" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -40,33 +40,33 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="lblMonName" min="-2" max="-2" attributes="0"/>
                           <Component id="lblMonster" pref="100" max="32767" attributes="0"/>
-                          <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblMonHealth" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btnWater" alignment="0" pref="75" max="32767" attributes="0"/>
-                                  <Component id="btnEarth" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnFire" pref="75" max="32767" attributes="0"/>
+                                  <Component id="btnEarth" max="32767" attributes="0"/>
+                                  <Component id="btnWater" pref="100" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnFire" pref="98" max="32767" attributes="0"/>
                                   <Component id="btnIce" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnFlee" min="-2" pref="75" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel9" pref="100" max="32767" attributes="0"/>
-                          <Component id="jLabel10" max="32767" attributes="0"/>
-                          <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel13" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblOpponent" pref="100" max="32767" attributes="0"/>
+                          <Component id="lblEarth" max="32767" attributes="0"/>
+                          <Component id="lblFire" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblWater" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblIce" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -97,13 +97,13 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPlayerHealth" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMonHealth" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblOpponent" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -120,13 +120,13 @@
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblEarth" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblFire" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblWater" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblIce" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -174,7 +174,7 @@
         <Property name="text" type="java.lang.String" value="Monster"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="lblPlayerHealth">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="cc" type="rgb"/>
@@ -182,7 +182,7 @@
         <Property name="text" type="java.lang.String" value="&#x2764; &#x2764; &#x2764;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
+    <Component class="javax.swing.JLabel" name="lblMonHealth">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="cc" type="rgb"/>
@@ -199,50 +199,65 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Earth"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEarthActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnFire">
       <Properties>
         <Property name="text" type="java.lang.String" value="Fire"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFireActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnWater">
       <Properties>
         <Property name="text" type="java.lang.String" value="Water"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnWaterActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnIce">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnFlee">
       <Properties>
         <Property name="text" type="java.lang.String" value="Flee"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFleeActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
+    <Component class="javax.swing.JLabel" name="lblOpponent">
       <Properties>
         <Property name="text" type="java.lang.String" value="Opponent"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel10">
+    <Component class="javax.swing.JLabel" name="lblEarth">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Earth"/>
+        <Property name="text" type="java.lang.String" value="Earth:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel11">
+    <Component class="javax.swing.JLabel" name="lblFire">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fire"/>
+        <Property name="text" type="java.lang.String" value="Fire:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
+    <Component class="javax.swing.JLabel" name="lblWater">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Water"/>
+        <Property name="text" type="java.lang.String" value="Water:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel13">
+    <Component class="javax.swing.JLabel" name="lblIce">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ice"/>
+        <Property name="text" type="java.lang.String" value="Ice:"/>
       </Properties>
     </Component>
   </SubComponents>
