@@ -150,7 +150,6 @@ public class loginForm extends javax.swing.JFrame {
                 System.out.println("Correct Password");
                 System.out.println(character.getUserName());
                 if(house == null){
-                    System.out.println("test");
                     house = new home(character);
                 }    
                 this.setVisible(false); 

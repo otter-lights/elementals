@@ -163,8 +163,13 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try{
-            File origFile = new File("src//elementals//character_saves//" + c.getUserName() + ".txt");
-            origFile.delete(); 
+            File origFile = new File("src//elementals//character_saves//" + c.getUserName() + ".txt"); 
+            if (origFile.delete()){
+                System.out.println("File is deleted!");
+            } 
+            else {
+                System.out.println("File not deleted.");
+            }
             
             File newFile = new File("src//elementals//character_saves//" + c.getUserName() + ".txt");
             
