@@ -56,6 +56,7 @@ public class home extends javax.swing.JFrame {
         lblHits = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         lblEarth.setText("Earth:");
 

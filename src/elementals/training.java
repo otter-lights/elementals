@@ -54,6 +54,7 @@ public class training extends javax.swing.JFrame {
         trainBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/earth-icon.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {

@@ -49,6 +49,7 @@ public class water extends javax.swing.JFrame {
         homeBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         questionOne.setText(" --");
 

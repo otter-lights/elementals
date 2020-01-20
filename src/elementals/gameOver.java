@@ -38,11 +38,12 @@ public class gameOver extends javax.swing.JFrame {
         exitBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         jLabel1.setText("Game Over");
 
-        saveBttn.setText("Save Life for 20 XP");
+        saveBttn.setText("Save Life for 6 XP");
         saveBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveBttnActionPerformed(evt);
@@ -125,8 +126,7 @@ public class gameOver extends javax.swing.JFrame {
             house.setVisible(true);
         }
         else{
-            JOptionPane optionPane = new JOptionPane("You Do Not Have 6 XP... Returning to Menu");
-            optionPane.setVisible(true);
+            JOptionPane.showMessageDialog (null, "You Don't Have Enough XP to Save Life", "Not Allowed", JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
         
             start starter = new start();
