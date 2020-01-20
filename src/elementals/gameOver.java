@@ -5,19 +5,24 @@
  */
 package elementals;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rachelroutly
  */
 public class gameOver extends javax.swing.JFrame {
-
+    start starter;
+    player character;
+    home house;
     /**
      * Creates new form gameOver
      */
-    public gameOver() {
+    public gameOver(player c) {
         initComponents();
+        character = c;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,18 +33,29 @@ public class gameOver extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        saveBttn = new javax.swing.JButton();
+        endBttn = new javax.swing.JButton();
         exitBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         jLabel1.setText("Game Over");
 
-        jButton1.setText("Save Life for 20 XP");
+        saveBttn.setText("Save Life for 6 XP");
+        saveBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveBttnActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Back to Start");
+        endBttn.setText("Back to Start");
+        endBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                endBttnActionPerformed(evt);
+            }
+        });
 
         exitBttn.setText("Close Game");
         exitBttn.addActionListener(new java.awt.event.ActionListener() {
@@ -60,9 +76,9 @@ public class gameOver extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(saveBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(endBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(exitBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -73,10 +89,10 @@ public class gameOver extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(49, 49, 49)
-                .addComponent(jButton1)
+                .addComponent(saveBttn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(endBttn)
                     .addComponent(exitBttn))
                 .addGap(23, 23, 23))
         );
@@ -89,11 +105,40 @@ public class gameOver extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitBttnActionPerformed
 
+    private void endBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endBttnActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        
+        start starter = new start();
+        starter.setVisible(true); 
+    }//GEN-LAST:event_endBttnActionPerformed
+
+    private void saveBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBttnActionPerformed
+        // TODO add your handling code here:
+        int xpValue = character.getXP();
+        if(xpValue >= 6){
+            character.setXP(xpValue - 6);
+            if(house == null){
+                System.out.println("test");
+                house = new home(character);
+            }    
+            this.setVisible(false); 
+            house.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog (null, "You Don't Have Enough XP to Save Life", "Not Allowed", JOptionPane.INFORMATION_MESSAGE);
+            this.setVisible(false);
+        
+            start starter = new start();
+            starter.setVisible(true); 
+        }
+    }//GEN-LAST:event_saveBttnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton endBttn;
     private javax.swing.JButton exitBttn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton saveBttn;
     // End of variables declaration//GEN-END:variables
 }

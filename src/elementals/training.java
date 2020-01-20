@@ -54,6 +54,7 @@ public class training extends javax.swing.JFrame {
         trainBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/earth-icon.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +74,7 @@ public class training extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Which Area Shall You Train In?");
 
-        elemSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EARTH", "FIRE", "WATER", "AIR" }));
+        elemSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EARTH", "FIRE", "WATER", "ICE" }));
 
         jLabel2.setText("Train to Improve Your Element Scores ");
 

@@ -15,16 +15,18 @@ public class player {
     double fireStat, earthStat, iceStat, waterStat;
     String charName, username, password;
     Color color;
-    int exp;
+    int red, green, blue, exp;
     
     
-    public player(String uName, String pWord, String name, int red, int green, int blue, double f, double e, double i, double w, int xp){
+    public player(String uName, String pWord, String name, int r, int g, int b, double f, double e, double i, double w, int xp){
         
         username = uName;
         password = pWord;
         charName = name;
-        color = new Color(red, green, blue);
-        
+        color = new Color(r, g, b);
+        red = r;
+        green = g;
+        blue = b;
         fireStat = f;
         earthStat = e;
         iceStat = i;
@@ -79,6 +81,24 @@ public class player {
     public void setWater(double w){
         waterStat = w;
     } 
+    public int getRed(){
+        return red;
+    }
+    public void setRed(int r){
+        red = r;
+    }
+    public int getGreen(){
+        return green;
+    }
+    public void setGreen(int g){
+        green = g;
+    }
+    public int getBlue(){
+        return blue;
+    }
+    public void setBlue(int b){
+        blue = b;
+    }
     public int getXP(){
         return exp;
     }

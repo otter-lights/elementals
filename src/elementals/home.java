@@ -5,6 +5,10 @@
  */
 package elementals;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author NathanFeenstra
@@ -52,6 +56,7 @@ public class home extends javax.swing.JFrame {
         lblHits = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         lblEarth.setText("Earth:");
 
@@ -156,9 +161,40 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBattleActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
         
-        this.setVisible(false);
-        new start().setVisible(true);
+        try{
+            File origFile = new File("src//elementals//character_saves//" + c.getUserName() + ".txt");
+            origFile.delete(); 
+            
+            File newFile = new File("src//elementals//character_saves//" + c.getUserName() + ".txt");
+            
+            
+            //Create the file
+            if (newFile.createNewFile()){
+                System.out.println("File is created!");
+            } 
+            else {
+                System.out.println("File already exists.");
+            }
+            //Write Content
+            FileWriter writer = new FileWriter(newFile);
+            writer.write(c.getUserName() + "\n" + 
+                            c.getPassWord() + "\n" + 
+                            c.getCharName() + "\n" + 
+                            c.getRed() + "\n" + 
+                            c.getGreen() + "\n" + 
+                            c.getBlue() + "\n" + 
+                            c.getFire() + "\n" + 
+                            c.getEarth() + "\n" + 
+                            c.getIce() + "\n" + 
+                            c.getWater() + "\n" +
+                            c.getXP());
+            writer.close();
+            }
+        catch(IOException e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_btnLogoutActionPerformed
 
 

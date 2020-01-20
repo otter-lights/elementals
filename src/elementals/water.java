@@ -7,6 +7,7 @@ package elementals;
 
 import java.util.Random;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,6 +49,7 @@ public class water extends javax.swing.JFrame {
         homeBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         questionOne.setText(" --");
 
@@ -131,10 +133,10 @@ public class water extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    int numCorrect = 0;
     private void submitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBttnActionPerformed
         // TODO add your handling code here:
-        int numCorrect = 0;
+        
         if(correct[numOne] == answerOne.getSelectedItem()){
             numCorrect++;
         }
@@ -307,7 +309,17 @@ public class water extends javax.swing.JFrame {
         }
         
     }
-    
+    public void skipQuestion(){
+        int xpValue = character.getXP();
+        if(xpValue >= 1){
+            character.setXP(xpValue - 1);
+            numCorrect++;
+        }
+        else{
+            JOptionPane optionPane = new JOptionPane("You Do Not Have Enough XP to skip");
+            optionPane.setVisible(true);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> answerOne;

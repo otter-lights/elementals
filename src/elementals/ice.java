@@ -7,6 +7,7 @@ package elementals;
 
 import java.util.Random;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,8 +48,12 @@ public class ice extends javax.swing.JFrame {
         answerTwo = new javax.swing.JComboBox<>();
         answerThree = new javax.swing.JComboBox<>();
         submitBttn = new javax.swing.JButton();
+        skipTwo = new javax.swing.JButton();
+        skipOne = new javax.swing.JButton();
+        skipThree = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/ice-icon.png"))); // NOI18N
         jLabel1.setText("  :");
@@ -75,6 +80,27 @@ public class ice extends javax.swing.JFrame {
             }
         });
 
+        skipTwo.setText("Skip");
+        skipTwo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skipTwoActionPerformed(evt);
+            }
+        });
+
+        skipOne.setText("Skip");
+        skipOne.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skipOneActionPerformed(evt);
+            }
+        });
+
+        skipThree.setText("Skip");
+        skipThree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skipThreeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,18 +118,23 @@ public class ice extends javax.swing.JFrame {
                             .addComponent(questionOne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(questionTwo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(questionThree, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 319, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(answerOne, 0, 91, Short.MAX_VALUE)
-                            .addComponent(answerTwo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(answerThree, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(23, 23, 23))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(homeBttn, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                    .addComponent(submitBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(submitBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(answerOne, 0, 91, Short.MAX_VALUE)
+                                    .addComponent(answerTwo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(answerThree, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(skipThree)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(skipTwo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(skipOne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addContainerGap())))
+                            .addComponent(homeBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,19 +142,24 @@ public class ice extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(iceVal))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(questionOne)
-                    .addComponent(answerOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(questionTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(answerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(questionThree)
-                    .addComponent(answerThree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(questionOne)
+                            .addComponent(answerOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(questionTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(answerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(skipTwo))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(questionThree)
+                            .addComponent(answerThree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(skipThree)))
+                    .addComponent(skipOne))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(submitBttn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(homeBttn)
@@ -142,10 +178,10 @@ public class ice extends javax.swing.JFrame {
         this.setVisible(false);
         house.setVisible(true);
     }//GEN-LAST:event_homeBttnActionPerformed
-
+    int numCorrect = 0;
     private void submitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBttnActionPerformed
         // TODO add your handling code here:
-        int numCorrect = 0;
+        
         if(correct[numOne] == answerOne.getSelectedItem()){
             numCorrect++;
         }
@@ -182,6 +218,21 @@ public class ice extends javax.swing.JFrame {
         this.setVisible(false);
         train.setVisible(true);
     }//GEN-LAST:event_submitBttnActionPerformed
+
+    private void skipOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipOneActionPerformed
+        // TODO add your handling code here:
+        skipQuestion();
+    }//GEN-LAST:event_skipOneActionPerformed
+
+    private void skipTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipTwoActionPerformed
+        // TODO add your handling code here:
+        skipQuestion();
+    }//GEN-LAST:event_skipTwoActionPerformed
+
+    private void skipThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipThreeActionPerformed
+        // TODO add your handling code here:
+        skipQuestion();
+    }//GEN-LAST:event_skipThreeActionPerformed
     
     String[] questions = {"The climate is made of five components, which ice?", 
                           "___% of land area is covered in glacial ice ", 
@@ -308,7 +359,17 @@ public class ice extends javax.swing.JFrame {
         }
         
     }
-    
+    public void skipQuestion(){
+        int xpValue = character.getXP();    
+        if(xpValue >= 1){
+            character.setXP(xpValue - 1);
+            numCorrect++;
+            System.out.println(xpValue);
+        }
+        else{
+             JOptionPane.showMessageDialog (null, "You Don't Have Enough XP to Skip", "Not Allowed", JOptionPane.INFORMATION_MESSAGE);           
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> answerOne;
     private javax.swing.JComboBox<String> answerThree;
@@ -319,6 +380,9 @@ public class ice extends javax.swing.JFrame {
     private javax.swing.JLabel questionOne;
     private javax.swing.JLabel questionThree;
     private javax.swing.JLabel questionTwo;
+    private javax.swing.JButton skipOne;
+    private javax.swing.JButton skipThree;
+    private javax.swing.JButton skipTwo;
     private javax.swing.JButton submitBttn;
     // End of variables declaration//GEN-END:variables
 }

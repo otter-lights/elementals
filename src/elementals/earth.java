@@ -7,6 +7,7 @@ package elementals;
 
 import java.util.Random;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -50,6 +51,7 @@ public class earth extends javax.swing.JFrame {
         submitBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/earth-icon.png"))); // NOI18N
         jLabel1.setText("  :");
@@ -143,10 +145,10 @@ public class earth extends javax.swing.JFrame {
         this.setVisible(false);
         house.setVisible(true);
     }//GEN-LAST:event_homeBttnActionPerformed
-
+    int numCorrect = 0;
     private void submitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBttnActionPerformed
         // TODO add your handling code here:
-        int numCorrect = 0;
+        
         if(correct[numOne] == answerOne.getSelectedItem()){
             numCorrect++;
         }
@@ -306,8 +308,18 @@ String[] questions = {"The climate is made of five components, which relates to 
             question.addItem(wrong2[n]);
             question.addItem(wrong3[n]);
             question.addItem(correct[n]);
+        }       
+    }
+    public void skipQuestion(){
+        int xpValue = character.getXP();
+        if(xpValue >= 1){
+            character.setXP(xpValue - 1);
+            numCorrect++;
         }
-        
+        else{
+            JOptionPane optionPane = new JOptionPane("You Do Not Have Enough XP to skip");
+            optionPane.setVisible(true);
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> answerOne;
