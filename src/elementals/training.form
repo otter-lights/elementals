@@ -193,7 +193,7 @@
             <StringItem index="0" value="EARTH"/>
             <StringItem index="1" value="FIRE"/>
             <StringItem index="2" value="WATER"/>
-            <StringItem index="3" value="AIR"/>
+            <StringItem index="3" value="ICE"/>
           </StringArray>
         </Property>
       </Properties>

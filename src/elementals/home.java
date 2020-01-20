@@ -5,6 +5,10 @@
  */
 package elementals;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author NathanFeenstra
@@ -62,7 +66,6 @@ public class home extends javax.swing.JFrame {
         lblIce.setText("Ice:");
 
         lblName.setText("Name:");
-        lblName.setBounds(new java.awt.Rectangle(-32419, -32762, 100, 16));
 
         aniCharacter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -81,6 +84,11 @@ public class home extends javax.swing.JFrame {
         });
 
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         lblHits.setText("Hitpoints:");
 
@@ -149,6 +157,43 @@ public class home extends javax.swing.JFrame {
         this.setVisible(false);
         new battle(c).setVisible(true);
     }//GEN-LAST:event_btnBattleActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+            File origFile = new File("src//elementals//character_saves//" + c.getUserName() + ".txt");
+            origFile.delete(); 
+            
+            File newFile = new File("src//elementals//character_saves//" + c.getUserName() + ".txt");
+            
+            
+            //Create the file
+            if (newFile.createNewFile()){
+                System.out.println("File is created!");
+            } 
+            else {
+                System.out.println("File already exists.");
+            }
+            //Write Content
+            FileWriter writer = new FileWriter(newFile);
+            writer.write(c.getUserName() + "\n" + 
+                            c.getPassWord() + "\n" + 
+                            c.getCharName() + "\n" + 
+                            c.getRed() + "\n" + 
+                            c.getGreen() + "\n" + 
+                            c.getBlue() + "\n" + 
+                            c.getFire() + "\n" + 
+                            c.getEarth() + "\n" + 
+                            c.getIce() + "\n" + 
+                            c.getWater() + "\n" +
+                            c.getXP());
+            writer.close();
+            }
+        catch(IOException e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
