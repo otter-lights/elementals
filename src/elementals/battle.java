@@ -30,6 +30,7 @@ public class battle extends javax.swing.JFrame {
     player c;
     int level;
     ImageIcon ii;
+    monster m;
     
     double monFire;
     double monEarth;
@@ -72,11 +73,11 @@ public class battle extends javax.swing.JFrame {
             
             String h = br.readLine();
             
-            int health = Integer.parseInt(h);
+            int monHealth = Integer.parseInt(h);
             
            String H = ""; 
            
-           for(int i = 0; i < health; i++){
+           for(int i = 0; i < monHealth; i++){
                H += "❤ ";
            }
            
@@ -101,6 +102,8 @@ public class battle extends javax.swing.JFrame {
             String x = br.readLine();
             
             int exp = Integer.parseInt(x);
+            
+            m = new monster(thing, monFire, monEarth, monIce, monWater, monHealth);
             
         }catch(IOException e){
             System.out.println(e + ": Error reading monster file: " + thing);
@@ -131,6 +134,49 @@ public class battle extends javax.swing.JFrame {
                 //just in case something bad happens the game is still playable
                 System.out.println("Something went very wrong here (monsterAttack randomizer)");
                 return new Earth();
+        }
+    }
+    
+    private void attack(Element player, Element monster){
+        double monAttack;
+        double monMod;
+        double playerAttack;
+        double playerMod;
+        
+        if(player.equals(new Ice())){
+            playerAttack = c.getIce();
+            monMod = monster.getIM();
+        }else if(player.equals(new Fire())){
+            playerAttack = c.getFire();
+            monMod = monster.getFM();
+        }else if(player.equals(new Water())){
+            playerAttack = c.getWater();
+            monMod = monster.getWM();
+        }else{
+            playerAttack = c.getEarth();
+            monMod = 1.0;
+        }
+        
+        if(monster.equals(new Ice())){
+            monAttack = m.getIce();
+            playerMod = player.getIM();
+        }else if(player.equals(new Fire())){
+            monAttack = m.getFire();
+            playerMod = player.getFM();
+        }else if(player.equals(new Water())){
+            monAttack = m.getWater();
+            playerMod = player.getWM();
+        }else{
+            monAttack = m.getEarth();
+            playerMod = 1.0;
+        }
+        
+        double decider = (playerAttack * playerMod) - (monAttack * monMod);
+        
+        if(decider >= 0){
+            //player won
+        }else{
+            //monster won
         }
     }
     
@@ -325,7 +371,10 @@ public class battle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIceActionPerformed
-        // TODO add your handling code here:
+        
+        
+        
+        
     }//GEN-LAST:event_btnIceActionPerformed
 
     private void btnWaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWaterActionPerformed

@@ -16,7 +16,16 @@ public class Element {
         fireMod = fm;
         waterMod = wm;
         iceMod = im;
+        
     }
+    
+    public boolean equals(Element e){
+        if(e.getFM() == this.getFM() && e.getWM() == this.getWM() && e.getIM() == this.getIM()){
+            return true;
+        }
+        return false;
+    }
+        
     
     public double getFM(){
         return fireMod;
