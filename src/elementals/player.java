@@ -1,38 +1,39 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Elementals - Rachel
+ * this is the class player that will be referenced when making and interacting with the main character
+ * this is an extension of the superclass being, which represents both monsters and players
  */
 package elementals;
 
+//imports the use of colors
 import java.awt.Color;
 
 /**
  *
  * @author rachelroutly
  */
-public class player {
-    double fireStat, earthStat, iceStat, waterStat;
-    String charName, username, password;
+public class player extends being{
+    //creates the variables used only in this class
+    String username, password;
     Color color;
     int red, green, blue, exp;
     
     
     public player(String uName, String pWord, String name, int r, int g, int b, double f, double e, double i, double w, int xp){
-        
+        //calls the super for the four elements and the name
+        super(name, f, e, i, w);
+        //sets the username and password
         username = uName;
         password = pWord;
-        charName = name;
+        //sets the colour, and the three RGb values
         color = new Color(r, g, b);
         red = r;
         green = g;
         blue = b;
-        fireStat = f;
-        earthStat = e;
-        iceStat = i;
-        waterStat = w;
+        //sets the exponent
         exp = xp;
     } 
+    //Getters and Setters for each variable exclusive to this class (username, password, color, RGBs, and XP)
     public String getUserName(){
         return(username);
     }
@@ -45,41 +46,11 @@ public class player {
     public void setPassWord(String p){
         password = p;
     }
-    public String getCharName(){
-        return(charName);
-    }
-    public void setCharName(String n){
-        charName = n;
-    }
     public Color getUserColor(){
         return(color);
     }
     public void setUserColor(Color c){
         color = c;
-    }
-    public double getFire(){
-        return(fireStat);
-    }
-    public void setFire(double f){
-        fireStat = f;
-    }
-    public double getEarth(){
-        return(earthStat);
-    }
-    public void setEarth(double e){
-        earthStat = e;
-    }       
-    public double getIce(){
-        return(iceStat);
-    }
-    public void setIce(double i){
-        iceStat = i;
-    }   
-    public double getWater(){
-        return(waterStat);
-    }
-    public void setWater(double w){
-        waterStat = w;
     } 
     public int getRed(){
         return red;
@@ -109,12 +80,8 @@ public class player {
     public String toString(){
         return(username + "\n" + 
                 password + "\n" + 
-                charName + "\n" + 
-                color + "\n" + 
-                fireStat + "\n" + 
-                earthStat + "\n" + 
-                iceStat + "\n" + 
-                waterStat);
+                name + "\n" + 
+                color + "\n");
     }
 }
 

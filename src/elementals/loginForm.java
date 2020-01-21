@@ -1,33 +1,33 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Elementals - Rachel
+ * this form will take the players login credentials and check if there is a player saved with the
+ * same username and password
  */
 package elementals;
 
+//imports used for files and color
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author rachelroutly
  */
 public class loginForm extends javax.swing.JFrame {
-    /**
-     * Creates new form loginForm
-     */
+    //global variables for the referenced forms and character
     start starter;
-    creator create;
     home house;
+    player character;
     
     public loginForm(start s) {
         initComponents();
         starter = s;
     }
     
-    private player character;
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,23 +102,28 @@ public class loginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBttnActionPerformed
-        // TODO add your handling code here:
+        //gets the values of username and password from the form
         String username = uNameField.getText();
         String password = pWordField.getText();
+        //sets the end to false as the end of the document has not been reached
         boolean end = false;
-        String uname = "";
-        String pword = "";
+        //sets empty strings for the saved username and password
+        String uName = "";
+        String pWord = "";
         
-        
+        //trys to read from the file
         try{
             //creates file and buffer readers to get data from
+            //goes to a file with the naming convention of givenUsername.txt
             FileReader r = new FileReader("src//elementals//character_saves//" + username + ".txt");
             BufferedReader b = new BufferedReader(r);
             
-            uname = b.readLine();
-            pword = b.readLine();
+            //reads the first too lines (username and password), saves time if password is wrong
+            uName = b.readLine();
+            pWord = b.readLine();
             
-            if(pword.equals(password)){
+            //if the password is correct the rest of the document is read and changed to the appropriate data type
+            if(pWord.equals(password)){
                 String charName = b.readLine();
 
                 String sR = b.readLine();
@@ -142,13 +147,13 @@ public class loginForm extends javax.swing.JFrame {
                 Double water = Double.parseDouble(w);
                 
                 int exp = Integer.parseInt(sExp);
-
-                Color colour = new Color(Integer.parseInt(sR), Integer.parseInt(sG), Integer.parseInt(sB));
-
-                character = new player(uname, pword, charName, iR, iG, iB, fire, earth, ice, water, exp);
                 
-                System.out.println("Correct Password");
-                System.out.println(character.getUserName());
+                //creates the characters color from the integers for RGB
+                Color colour = new Color(iR, iG, iB);
+
+                //creates the character of class player with given values
+                character = new player(uName, pWord, charName, iR, iG, iB, fire, earth, ice, water, exp);
+                
                 if(house == null){
                     house = new home(character);
                 }    
@@ -156,12 +161,13 @@ public class loginForm extends javax.swing.JFrame {
                 house.setVisible(true);  
             }
             else{
-                System.out.println("Wrong Password");
+                JOptionPane.showMessageDialog (null, "Login Credentials are Incorrect", "Not Authenticated", JOptionPane.INFORMATION_MESSAGE);
+
             }
             b.close();
         }
         catch(IOException e){
-            System.out.println("user not valid");
+            System.out.println("User not valid");
         }        
     }//GEN-LAST:event_loginBttnActionPerformed
 

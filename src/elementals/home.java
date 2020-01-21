@@ -25,7 +25,7 @@ public class home extends javax.swing.JFrame {
         
         c = a;
         
-        lblName.setText("Name: " + c.getCharName());
+        lblName.setText("Name: " + c.getName());
         lblEarth.setText("Earth: " + c.getEarth());
         lblFire.setText("Fire: " + c.getFire());
         lblIce.setText("Ice: " + c.getIce());
@@ -185,7 +185,7 @@ public class home extends javax.swing.JFrame {
             FileWriter writer = new FileWriter(newFile);
             writer.write(c.getUserName() + "\n" + 
                             c.getPassWord() + "\n" + 
-                            c.getCharName() + "\n" + 
+                            c.getName() + "\n" + 
                             c.getRed() + "\n" + 
                             c.getGreen() + "\n" + 
                             c.getBlue() + "\n" + 

@@ -1,21 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Elementals - Rachel Routly
+ * this page allows users to create a new character game save
  */
 package elementals;
 
+//imports for the program to deal with files, colors, and random numbers
 import java.awt.Color;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Random;
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -23,27 +19,22 @@ import javax.swing.JPanel;
  * @author rachelroutly
  */
 public class creator extends javax.swing.JFrame {
+    
+    //global variables for the forms referenced and the character made by the program
     home house;
     start starter;
     player character;
     loginForm login;
-    
-    ImageIcon fireIcon = new ImageIcon("src//elementals//images//fire-icon.png");
-    ImageIcon earthIcon = new ImageIcon("src//elementals//images//earth-icon.png");
-    ImageIcon waterIcon = new ImageIcon("src//elementals//images//water-icon.png");
-    ImageIcon iceIcon = new ImageIcon("src//elementals//images//ice-icon.png");
+
     /**
      * Creates new form creator
      * @param s
      */
     public creator(start s) {
         initComponents();
+        //placing the colour chooser in the JPanel
         colorChooser.setPreviewPanel(new JPanel());
         starter = s;
-        fireBttn.setIcon(fireIcon);
-        earthBttn.setIcon(earthIcon);
-        waterBttn.setIcon(waterIcon);
-        iceBttn.setIcon(iceIcon);
     }
 
     /**
@@ -92,24 +83,28 @@ public class creator extends javax.swing.JFrame {
 
         jLabel5.setText("Choose Your Character's Colour:");
 
+        fireBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/fire-icon.png"))); // NOI18N
         fireBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fireBttnActionPerformed(evt);
             }
         });
 
+        waterBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/water-icon.png"))); // NOI18N
         waterBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 waterBttnActionPerformed(evt);
             }
         });
 
+        iceBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/ice-icon.png"))); // NOI18N
         iceBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iceBttnActionPerformed(evt);
             }
         });
 
+        earthBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/earth-icon.png"))); // NOI18N
         earthBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 earthBttnActionPerformed(evt);
@@ -261,44 +256,60 @@ public class creator extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    //creates global variables for the random number and element values
     Random ran = new Random();
     double fire, earth, ice, water;
-    int red, green, blue, exp;
     
     private void fireBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fireBttnActionPerformed
+        //gets the next double and multiplies it by 10 (to get # out of 10)
         double num = ran.nextDouble() * 10.0;        
+        //sets fire to the random number, formated to one decimal
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         fire = Double.parseDouble(numberFormat.format(num));
+        //shows the value on screen
         fireStat.setText(numberFormat.format(fire));
+        //doesn't allow rerolling
         fireBttn.setEnabled(false);
     }//GEN-LAST:event_fireBttnActionPerformed
 
     private void earthBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_earthBttnActionPerformed
-        double num = ran.nextDouble() * 10.0;        
+        //gets the next double and multiplies it by 10 (to get # out of 10)
+        double num = ran.nextDouble() * 10.0;  
+        //sets ice to the next random number, formatted to one decimal 
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         earth = Double.parseDouble(numberFormat.format(num));
+        //shows the value on screen
         earthStat.setText(numberFormat.format(earth));
+        //doesn't allow rerolling
         earthBttn.setEnabled(false);
     }//GEN-LAST:event_earthBttnActionPerformed
 
     private void waterBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterBttnActionPerformed
-        double num = ran.nextDouble() * 10.0;        
+        //gets the next double and multiplies it by 10 (to get # out of 10)
+        double num = ran.nextDouble() * 10.0;   
+        //sets water to the next double formatted to one decimal place
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         water = Double.parseDouble(numberFormat.format(num));
+        //shows the value on screen
         waterStat.setText(numberFormat.format(water));
+        //doesn't allow rerolling
         waterBttn.setEnabled(false);
     }//GEN-LAST:event_waterBttnActionPerformed
 
     private void iceBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iceBttnActionPerformed
-        double num = ran.nextDouble() * 10.0;        
+        //gets the next double and multiplies it by 10 (to get # out of 10)
+        double num = ran.nextDouble() * 10.0;    
+        //sets ice to the next double formatted to one decimal place
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         ice = Double.parseDouble(numberFormat.format(num));
+        //shows the value on screen
         iceStat.setText(numberFormat.format(ice));
+        //doesn't allow rerolling
         iceBttn.setEnabled(false);
     }//GEN-LAST:event_iceBttnActionPerformed
 
     private void backBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBttnActionPerformed
-        // TODO add your handling code here:
+        //closes the current window and opens the start window 
         this.setVisible(false);
         
         start starter = new start();
@@ -306,33 +317,39 @@ public class creator extends javax.swing.JFrame {
     }//GEN-LAST:event_backBttnActionPerformed
 
     private void createBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBttnActionPerformed
-        // TODO add your handling code here:
+        //fetching the values from the form 
         String username = uNameField.getText();
         String password = pWordField.getText();
         String characterName = charNameField.getText();
         Color color = colorChooser.getColor();
-        exp = 0;
+        //setting the starting XP value to 0
+        int exp = 0;
+        //setting variables for each part of the RGB color value (easier to store line by line)
+        int red = color.getRed();
+        int green = color.getGreen();
+        int blue = color.getBlue();
         
+        //creates the character of player class
         character = new player(username, password, characterName, red, blue, green, fire, earth, ice, water, exp);
-            
+         
+        //try to write changes into a new file
         try{
+            //make the new file, named according the players username
             File file = new File("src//elementals//character_saves//" + uNameField.getText() + ".txt");
 
-            //Create the file
-            if (file.createNewFile()){
-                System.out.println("File is created!");
+            //if the file cannot be created, inform the user that the username they chose is taken
+            if (file.createNewFile() == false){
+                JOptionPane.showMessageDialog (null, "This Username is Taken", "Username Error", JOptionPane.INFORMATION_MESSAGE);
             } 
-            else {
-                System.out.println("File already exists.");
-            }
-            //Write Content
+            
+            //Write the players information into the created file, done line by line (allows reading later)
             FileWriter writer = new FileWriter(file);
             writer.write(username + "\n" + 
                             password + "\n" + 
                             characterName + "\n" + 
-                            color.getRed() + "\n" + 
-                            color.getGreen() + "\n" + 
-                            color.getBlue() + "\n" + 
+                            red + "\n" + 
+                            green + "\n" + 
+                            blue + "\n" + 
                             fire + "\n" + 
                             earth + "\n" + 
                             ice + "\n" + 
@@ -340,10 +357,11 @@ public class creator extends javax.swing.JFrame {
                             exp);
             writer.close();
             }
+        //prints the error message if it is unable to complete the try
         catch(IOException e){
             System.out.println(e);
         }
-        
+        //then brings the user to the home page
         if(house == null){
             house = new home(character);
         }    

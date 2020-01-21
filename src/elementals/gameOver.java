@@ -1,10 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Elementals - Rachel Routly
+ * This page will show if the player dies in an encounter, they have the option to save life (for 6 XP) or restart
  */
 package elementals;
-
+//imports file and option pane elements
 import java.io.File;
 import javax.swing.JOptionPane;
 
@@ -13,6 +12,7 @@ import javax.swing.JOptionPane;
  * @author rachelroutly
  */
 public class gameOver extends javax.swing.JFrame {
+    //global variables for referenced forms and the character
     start starter;
     player character;
     home house;
@@ -102,7 +102,7 @@ public class gameOver extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBttnActionPerformed
-        // TODO add your handling code here:
+        //if they choose to exit, the current save file will be deleted, and the system will exit
         File origFile = new File("src//elementals//character_saves//" + character.getUserName() + ".txt"); 
         origFile.delete();
         
@@ -110,7 +110,7 @@ public class gameOver extends javax.swing.JFrame {
     }//GEN-LAST:event_exitBttnActionPerformed
 
     private void endBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endBttnActionPerformed
-        // TODO add your handling code here:
+        //if the user chooses to end the program, their file is still deleted, but they are returned to the start menu
         File origFile = new File("src//elementals//character_saves//" + character.getUserName() + ".txt"); 
         origFile.delete();
         
@@ -121,8 +121,9 @@ public class gameOver extends javax.swing.JFrame {
     }//GEN-LAST:event_endBttnActionPerformed
 
     private void saveBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBttnActionPerformed
-        // TODO add your handling code here:
+        //if they want to save their life, their current XP value is retrieved
         int xpValue = character.getXP();
+        //if it is greater than or equal to 6, their XP is decreased by 6 and they are returned to home
         if(xpValue >= 6){
             character.setXP(xpValue - 6);
             if(house == null){
@@ -132,6 +133,7 @@ public class gameOver extends javax.swing.JFrame {
             this.setVisible(false); 
             house.setVisible(true);
         }
+        //if not, they recieve a message that they don't have enough XP, their file is deleted and they are returned to the start menu
         else{
             JOptionPane.showMessageDialog (null, "You Don't Have Enough XP to Save Life", "Not Allowed", JOptionPane.INFORMATION_MESSAGE);
             File origFile = new File("src//elementals//character_saves//" + character.getUserName() + ".txt"); 

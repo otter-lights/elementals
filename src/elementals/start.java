@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Elementals - Rachel Routly
+ * this is the starting page of the program where the user will select which game loader they want
  */
 package elementals;
 
@@ -17,7 +16,7 @@ public class start extends javax.swing.JFrame {
     public start() {
         initComponents();
     }
-    
+    //create variables for the two forms created
     loginForm log;
     creator create;
     
@@ -85,7 +84,7 @@ public class start extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameActionPerformed
-        // TODO add your handling code here:
+        //if the user selects to create a new game, the current form is closed and the creator form is opened
         if(create == null){
             create = new creator(this);
         }
@@ -94,7 +93,7 @@ public class start extends javax.swing.JFrame {
     }//GEN-LAST:event_newGameActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        // TODO add your handling code here:
+        //if the user selects to log in, the current form is closed and the log in form is opened
         if(log == null){
             log = new loginForm(this);
         }    
