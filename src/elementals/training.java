@@ -5,6 +5,8 @@
  */
 package elementals;
 
+import java.awt.Color;
+
 /**
  *
  * @author rachelroutly
@@ -23,6 +25,8 @@ public class training extends javax.swing.JFrame {
      */
     public training(player c) {
         initComponents();
+        Color train = new Color(255,249,165);
+        this.getContentPane().setBackground(train);
         character = c;  
         //set the stat boxes to the characters stat values
         earthStat.setText(String.valueOf(character.getEarth()));

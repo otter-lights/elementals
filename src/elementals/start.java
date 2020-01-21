@@ -19,7 +19,7 @@ public class start extends javax.swing.JFrame {
     //create variables for the two forms created
     loginForm log;
     creator create;
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,11 +35,13 @@ public class start extends javax.swing.JFrame {
         exitBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
         setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/elementalslogoicon.png"))); // NOI18N
 
+        login.setBackground(new java.awt.Color(145, 145, 233));
         login.setText("Login");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,6 +49,7 @@ public class start extends javax.swing.JFrame {
             }
         });
 
+        newGame.setBackground(new java.awt.Color(145, 145, 233));
         newGame.setText("New Game");
         newGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +57,7 @@ public class start extends javax.swing.JFrame {
             }
         });
 
+        exitBttn.setBackground(new java.awt.Color(145, 145, 233));
         exitBttn.setText("Exit Game");
         exitBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,20 +100,20 @@ public class start extends javax.swing.JFrame {
 
     private void newGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameActionPerformed
         //if the user selects to create a new game, the current form is closed and the creator form is opened
-        if(create == null){
+        if (create == null) {
             create = new creator(this);
         }
-        this.setVisible(false);        
-        create.setVisible(true);  
+        this.setVisible(false);
+        create.setVisible(true);
     }//GEN-LAST:event_newGameActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         //if the user selects to log in, the current form is closed and the log in form is opened
-        if(log == null){
+        if (log == null) {
             log = new loginForm(this);
-        }    
-        this.setVisible(false);       
-        log.setVisible(true);              
+        }
+        this.setVisible(false);
+        log.setVisible(true);
     }//GEN-LAST:event_loginActionPerformed
 
     private void exitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBttnActionPerformed

@@ -44,6 +44,7 @@ public class gameOver extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         jLabel1.setText("Game Over");
 
+        saveBttn.setBackground(new java.awt.Color(145, 145, 233));
         saveBttn.setText("Save Life for 6 XP");
         saveBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,6 +52,7 @@ public class gameOver extends javax.swing.JFrame {
             }
         });
 
+        endBttn.setBackground(new java.awt.Color(145, 145, 233));
         endBttn.setText("Back to Start");
         endBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +60,7 @@ public class gameOver extends javax.swing.JFrame {
             }
         });
 
+        exitBttn.setBackground(new java.awt.Color(145, 145, 233));
         exitBttn.setText("Close Game");
         exitBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
