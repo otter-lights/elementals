@@ -68,8 +68,6 @@ public class loginForm extends javax.swing.JFrame {
             }
         });
 
-        pWordField.setText(" ");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
