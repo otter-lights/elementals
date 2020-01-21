@@ -35,7 +35,7 @@ public class home extends javax.swing.JFrame {
         aniPlayer.setBackground(c.getUserColor());
         
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -207,6 +207,7 @@ public class home extends javax.swing.JFrame {
             System.out.println(e);
         }
         
+        //haha Rachel forgot this part
         System.exit(0);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
