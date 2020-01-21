@@ -107,28 +107,13 @@ public class battle extends javax.swing.JFrame {
         
     }
     
-    public Element monsterAttack(){
+    public int monsterAttack(){
         Random ran = new Random();
-        int choice = ran.nextInt(4);
-        
-        switch(choice){
-            case 0:
-                return new Earth();
-            case 1:
-                return new Fire();
-            case 2:
-                return new Water();
-            case 3:
-                return new Ice();
-            default:
-                //just in case something bad happens the game is still playable
-                System.out.println("Something went very wrong here (monsterAttack randomizer)");
-                return new Earth();
-        }
+        return ran.nextInt(4);
     }
     
-    private void attack(Element player){
-        Element monster = monsterAttack();
+    private void attack(int player){
+        int monster = monsterAttack();
         
         double monAttack;
         double monMod;
@@ -140,48 +125,88 @@ public class battle extends javax.swing.JFrame {
         btnIce.setEnabled(true);
         btnEarth.setEnabled(true);
         
-        if(player.equals(new Ice())){
-            playerAttack = c.getIce();
-            monMod = monster.getIM();
-            btnIce.setEnabled(false);
-        }else if(player.equals(new Fire())){
-            playerAttack = c.getFire();
-            monMod = monster.getFM();
-            btnFire.setEnabled(false);
-        }else if(player.equals(new Water())){
-            playerAttack = c.getWater();
-            monMod = monster.getWM();
-            btnWater.setEnabled(false);
-        }else{
-            playerAttack = c.getEarth();
-            monMod = 1.0;
-            btnEarth.setEnabled(false);
+        Element mType;
+        Element pType;
+        
+        switch(monster){
+            case 0:
+                mType = new Earth();
+            case 1:
+                mType = new Fire();
+            case 2:
+                mType = new Water();
+            case 3:
+                mType = new Ice();
+            default:
+                mType = new Earth();
+                System.out.println("Something went wrong with monster attack selection - given number" + monster);
         }
         
-        if(monster.equals(new Ice())){
-            monAttack = m.getIce();
-            playerMod = player.getIM();
-        }else if(player.equals(new Fire())){
-            monAttack = m.getFire();
-            playerMod = player.getFM();
-        }else if(player.equals(new Water())){
-            monAttack = m.getWater();
-            playerMod = player.getWM();
-        }else{
-            monAttack = m.getEarth();
-            playerMod = 1.0;
+        switch(player){
+            case 0:
+                pType = new Earth();
+                playerAttack = c.getEarth();
+                monMod = 1.0;
+                btnEarth.setEnabled(false);
+            case 1:
+                pType = new Fire();
+                playerAttack = c.getFire();
+                monMod = mType.getFM();
+                btnFire.setEnabled(false);
+            case 2:
+                pType = new Water();
+                playerAttack = c.getWater();
+                monMod = mType.getWM();
+                btnWater.setEnabled(false);
+            case 3:
+                pType = new Ice();
+                playerAttack = c.getIce();
+                monMod = mType.getIM();
+                btnIce.setEnabled(false);
+            default:
+                pType = new Earth();
+                playerAttack = c.getEarth();
+                monMod = 1.0;
+                btnEarth.setEnabled(false);
+                System.out.println("Something went wrong with player attack selection - given number" + player);
         }
+        
+        switch(monster){
+            case 0:
+                monAttack = c.getEarth();
+                playerMod = 1.0;
+            case 1:
+                monAttack = c.getFire();
+                playerMod = pType.getFM();
+            case 2:
+                monAttack = c.getWater();
+                playerMod = pType.getWM();
+            case 3:
+                monAttack = c.getIce();
+                playerMod = pType.getIM();
+            default:
+                System.out.println("Monster attack comparison error");
+                monAttack = c.getEarth();
+                playerMod = 1.0;
+        }
+        
+        
         
         double decider = (playerAttack * playerMod) - (monAttack * monMod);
         
-        if(decider >= 0){
-            monHealth--;
+        if(decider > 0){
             
+            monHealth--;
             String H = "";
             for(int i = 0; i < monHealth; i++){
                H += "❤ ";
             }
             lblMonHealth.setText(H);
+            
+            JOptionPane.showMessageDialog(null, "You hit your opponent\n"
+                    + "Info:\n"
+                    + "You Chose " + pType.toString() + " -> " + playerAttack + " * " + playerMod + " = " + (playerAttack*playerMod) + "\n"
+                    + "Opponent chose " + mType.toString() + " -> " + monAttack + " * " + monMod + " = " + (monAttack*monMod));
             
             if(monHealth <= 0){
                 JOptionPane.showMessageDialog(null, "Great work!\nYou Win!\n\nYou earned " + exp + "experience");
@@ -191,19 +216,28 @@ public class battle extends javax.swing.JFrame {
                 this.setVisible(false);
                 new home(c).setVisible(true);
             }
-        }else{
-            playerHealth--;
             
+        }else if(decider < 0){
+            
+            playerHealth--;
             String H = "";
             for(int i = 0; i < playerHealth; i++){
                H += "❤ ";
             }
             lblPlayerHealth.setText(H);
             
+            JOptionPane.showMessageDialog(null, "Ah, you've been hit\n"
+                    + "Info:\n"
+                    + "You Chose " + pType.toString() + " -> " + playerAttack + " * " + playerMod + " = " + (playerAttack*playerMod) + "\n"
+                    + "Opponent chose " + mType.toString() + " -> " + monAttack + " * " + monMod + " = " + (monAttack*monMod));
+            
             if(playerHealth <= 0){
                 this.setVisible(false);
                 new gameOver(c).setVisible(true);
             }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "tie, nobody wins");
         }
     }
 
@@ -367,25 +401,30 @@ public class battle extends javax.swing.JFrame {
 
     private void btnFleeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFleeActionPerformed
         JOptionPane.showMessageDialog(null, "As you run away you loose some experience");
+        if(c.getXP() >= 4){
+            c.setXP(c.getXP() - 4);
+        }else{
+            c.setXP(0);
+        }
         
         this.setVisible(false);
         new home(c).setVisible(true);
     }//GEN-LAST:event_btnFleeActionPerformed
 
     private void btnEarthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEarthActionPerformed
-        attack(new Earth());
+        attack(0);
     }//GEN-LAST:event_btnEarthActionPerformed
 
     private void btnFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFireActionPerformed
-        attack(new Fire());
+        attack(1);
     }//GEN-LAST:event_btnFireActionPerformed
 
     private void btnWaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWaterActionPerformed
-        attack(new Water());
+        attack(2);
     }//GEN-LAST:event_btnWaterActionPerformed
 
     private void btnIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIceActionPerformed
-        attack(new Ice());
+        attack(3);
     }//GEN-LAST:event_btnIceActionPerformed
 
 
