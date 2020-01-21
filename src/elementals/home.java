@@ -30,8 +30,9 @@ public class home extends javax.swing.JFrame {
         lblFire.setText("Fire: " + c.getFire());
         lblIce.setText("Ice: " + c.getIce());
         lblWater.setText("Water: " + c.getWater());
-        lblHits.setText("Hitpoints: " + 3);
-        //lblLevel.setText("Level: " + level);
+        lblHits.setText("Experience: " + c.getXP());
+        
+        aniPlayer.setBackground(c.getUserColor());
         
     }
 
@@ -49,7 +50,7 @@ public class home extends javax.swing.JFrame {
         lblWater = new javax.swing.JLabel();
         lblIce = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
-        aniCharacter = new javax.swing.JLabel();
+        aniPlayer = new javax.swing.JLabel();
         btnTrain = new javax.swing.JButton();
         btnBattle = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
@@ -68,7 +69,8 @@ public class home extends javax.swing.JFrame {
 
         lblName.setText("Name:");
 
-        aniCharacter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        aniPlayer.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        aniPlayer.setOpaque(true);
 
         btnTrain.setText("Train Stats");
         btnTrain.addActionListener(new java.awt.event.ActionListener() {
@@ -110,12 +112,13 @@ public class home extends javax.swing.JFrame {
                             .addComponent(btnLogout))
                         .addGap(18, 18, 18))
                     .addComponent(lblEarth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(aniCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBattle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBattle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(aniPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -126,23 +129,25 @@ public class home extends javax.swing.JFrame {
                     .addComponent(lblEarth)
                     .addComponent(lblName))
                 .addGap(18, 18, 18)
+                .addComponent(lblFire)
+                .addGap(20, 20, 20)
+                .addComponent(lblWater)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblFire)
-                        .addGap(20, 20, 20)
-                        .addComponent(lblWater)
-                        .addGap(18, 18, 18)
                         .addComponent(lblIce)
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(lblHits))
-                    .addComponent(aniCharacter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(aniPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTrain)
                     .addComponent(btnBattle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLogout)
-                .addContainerGap())
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -207,7 +212,7 @@ public class home extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel aniCharacter;
+    private javax.swing.JLabel aniPlayer;
     private javax.swing.JButton btnBattle;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnTrain;
