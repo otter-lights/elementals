@@ -52,8 +52,7 @@ public class ice extends javax.swing.JFrame {
         skipOne = new javax.swing.JButton();
         skipThree = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/ice-icon.png"))); // NOI18N
         jLabel1.setText("  :");
@@ -211,6 +210,8 @@ public class ice extends javax.swing.JFrame {
             default:
                 break;
         }
+        //gives the user a message of how many questions they ansswered correctly
+        JOptionPane.showMessageDialog (null, "You Answered " + numCorrect + " Question(s) Correctly", "Not Allowed", JOptionPane.INFORMATION_MESSAGE);
         //closes current form and opens training form
         if(train == null){
             train = new training(character);

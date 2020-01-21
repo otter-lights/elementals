@@ -75,8 +75,7 @@ public class water extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         questionOne.setText(" --");
 
@@ -132,7 +131,7 @@ public class water extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(527, 527, 527)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 527, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(answerThree, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,6 +224,8 @@ public class water extends javax.swing.JFrame {
             default:
                 break;
         }
+        //gives the user a message of how many questions they ansswered correctly
+        JOptionPane.showMessageDialog (null, "You Answered " + numCorrect + " Question(s) Correctly", "Not Allowed", JOptionPane.INFORMATION_MESSAGE);
         //closes current form and opens training form
         if(train == null){
             train = new training(character);

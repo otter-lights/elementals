@@ -52,8 +52,7 @@ public class fire extends javax.swing.JFrame {
         skipTwo = new javax.swing.JButton();
         skipThree = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/fire-icon.png"))); // NOI18N
         jLabel1.setText("  :");
@@ -121,7 +120,7 @@ public class fire extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(skipThree))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 523, Short.MAX_VALUE)
+                        .addGap(0, 632, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(submitBttn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(answerThree, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,6 +208,8 @@ public class fire extends javax.swing.JFrame {
             default:
                 break;
         }
+        //gives the user a message of how many questions they ansswered correctly
+        JOptionPane.showMessageDialog (null, "You Answered " + numCorrect + " Question(s) Correctly", "Not Allowed", JOptionPane.INFORMATION_MESSAGE);
         //closes current form and opens training form
         if(train == null){
             train = new training(character);
