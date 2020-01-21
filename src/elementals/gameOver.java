@@ -5,6 +5,7 @@
  */
 package elementals;
 
+import java.io.File;
 import javax.swing.JOptionPane;
 
 /**
@@ -102,11 +103,17 @@ public class gameOver extends javax.swing.JFrame {
 
     private void exitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBttnActionPerformed
         // TODO add your handling code here:
+        File origFile = new File("src//elementals//character_saves//" + character.getUserName() + ".txt"); 
+        origFile.delete();
+        
         System.exit(0);
     }//GEN-LAST:event_exitBttnActionPerformed
 
     private void endBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endBttnActionPerformed
         // TODO add your handling code here:
+        File origFile = new File("src//elementals//character_saves//" + character.getUserName() + ".txt"); 
+        origFile.delete();
+        
         this.setVisible(false);
         
         start starter = new start();
@@ -127,6 +134,9 @@ public class gameOver extends javax.swing.JFrame {
         }
         else{
             JOptionPane.showMessageDialog (null, "You Don't Have Enough XP to Save Life", "Not Allowed", JOptionPane.INFORMATION_MESSAGE);
+            File origFile = new File("src//elementals//character_saves//" + character.getUserName() + ".txt"); 
+            origFile.delete();
+            
             this.setVisible(false);
         
             start starter = new start();

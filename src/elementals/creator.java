@@ -23,7 +23,7 @@ import javax.swing.JPanel;
  * @author rachelroutly
  */
 public class creator extends javax.swing.JFrame {
-    
+    home house;
     start starter;
     player character;
     loginForm login;
@@ -270,6 +270,7 @@ public class creator extends javax.swing.JFrame {
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         fire = Double.parseDouble(numberFormat.format(num));
         fireStat.setText(numberFormat.format(fire));
+        fireBttn.setEnabled(false);
     }//GEN-LAST:event_fireBttnActionPerformed
 
     private void earthBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_earthBttnActionPerformed
@@ -277,6 +278,7 @@ public class creator extends javax.swing.JFrame {
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         earth = Double.parseDouble(numberFormat.format(num));
         earthStat.setText(numberFormat.format(earth));
+        earthBttn.setEnabled(false);
     }//GEN-LAST:event_earthBttnActionPerformed
 
     private void waterBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterBttnActionPerformed
@@ -284,6 +286,7 @@ public class creator extends javax.swing.JFrame {
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         water = Double.parseDouble(numberFormat.format(num));
         waterStat.setText(numberFormat.format(water));
+        waterBttn.setEnabled(false);
     }//GEN-LAST:event_waterBttnActionPerformed
 
     private void iceBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iceBttnActionPerformed
@@ -291,6 +294,7 @@ public class creator extends javax.swing.JFrame {
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         ice = Double.parseDouble(numberFormat.format(num));
         iceStat.setText(numberFormat.format(ice));
+        iceBttn.setEnabled(false);
     }//GEN-LAST:event_iceBttnActionPerformed
 
     private void backBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBttnActionPerformed
@@ -339,6 +343,12 @@ public class creator extends javax.swing.JFrame {
         catch(IOException e){
             System.out.println(e);
         }
+        
+        if(house == null){
+            house = new home(character);
+        }    
+        this.setVisible(false); 
+        house.setVisible(true);  
     }//GEN-LAST:event_createBttnActionPerformed
 
     /**
