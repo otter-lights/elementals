@@ -37,6 +37,7 @@ public class gameWin extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         jLabel1.setText("You Win!");
 
+        exitBttn.setBackground(new java.awt.Color(145, 145, 233));
         exitBttn.setText("Exit Game");
         exitBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,6 +45,7 @@ public class gameWin extends javax.swing.JPanel {
             }
         });
 
+        restartBttn.setBackground(new java.awt.Color(145, 145, 233));
         restartBttn.setText("Back to Start");
         restartBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

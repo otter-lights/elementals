@@ -70,6 +70,7 @@ public class home extends javax.swing.JFrame {
 
         aniCharacter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnTrain.setBackground(new java.awt.Color(255, 249, 165));
         btnTrain.setText("Train Stats");
         btnTrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
