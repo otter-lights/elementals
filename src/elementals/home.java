@@ -161,9 +161,10 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBattleActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
+        // DONE by RACHEL
         
         try{
+            //deletes the old file
             File origFile = new File("src//elementals//character_saves//" + c.getUserName() + ".txt"); 
             if (origFile.delete()){
                 System.out.println("File is deleted!");
@@ -171,7 +172,7 @@ public class home extends javax.swing.JFrame {
             else {
                 System.out.println("File not deleted.");
             }
-            
+            //makes a new file with the same name (username.txt
             File newFile = new File("src//elementals//character_saves//" + c.getUserName() + ".txt");
             
             
@@ -182,7 +183,7 @@ public class home extends javax.swing.JFrame {
             else {
                 System.out.println("File already exists.");
             }
-            //Write Content
+            //Write Updated content to the file
             FileWriter writer = new FileWriter(newFile);
             writer.write(c.getUserName() + "\n" + 
                             c.getPassWord() + "\n" + 

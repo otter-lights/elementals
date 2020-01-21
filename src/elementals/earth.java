@@ -1,10 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Elementals - Rachel
+ * this is the form that will ask random question quizzes about the earth topic
  */
 package elementals;
 
+//imports for the program
 import java.util.Random;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author rachelroutly
  */
 public class earth extends javax.swing.JFrame {
-    
+    //global variables for character and referenced forms
     player character;
     home house;
     training train;
@@ -26,6 +26,7 @@ public class earth extends javax.swing.JFrame {
     public earth(player c) {
         initComponents();
         character = c;
+        //calls the method to choose questions and sets the value of the text to the earth value
         chooseQuestions();
         earthVal.setText(String.valueOf(character.getEarth()));
     }
@@ -49,6 +50,9 @@ public class earth extends javax.swing.JFrame {
         answerTwo = new javax.swing.JComboBox<>();
         answerThree = new javax.swing.JComboBox<>();
         submitBttn = new javax.swing.JButton();
+        skipOne = new javax.swing.JButton();
+        skipTwo = new javax.swing.JButton();
+        skipThree = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -78,6 +82,27 @@ public class earth extends javax.swing.JFrame {
             }
         });
 
+        skipOne.setText("Skip");
+        skipOne.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skipOneActionPerformed(evt);
+            }
+        });
+
+        skipTwo.setText("Skip");
+        skipTwo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skipTwoActionPerformed(evt);
+            }
+        });
+
+        skipThree.setText("Skip");
+        skipThree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skipThreeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,23 +114,31 @@ public class earth extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(earthVal)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(questionOne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(questionTwo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(questionThree, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 314, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(answerOne, 0, 91, Short.MAX_VALUE)
-                            .addComponent(answerTwo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(answerThree, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(23, 23, 23))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(homeBttn, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                    .addComponent(submitBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(263, 263, 263)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(answerThree, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(skipThree, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(answerOne, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(skipOne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(answerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(skipTwo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(submitBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(homeBttn, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -117,16 +150,19 @@ public class earth extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(questionOne)
-                    .addComponent(answerOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addComponent(answerOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(skipOne))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(questionTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(answerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                    .addComponent(answerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(skipTwo))
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(questionThree)
-                    .addComponent(answerThree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                    .addComponent(answerThree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(skipThree))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(submitBttn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(homeBttn)
@@ -137,48 +173,46 @@ public class earth extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBttnActionPerformed
-        // TODO add your handling code here:
+        // closes the current form, and opens the home form
         if(house == null){
-            System.out.println("yeet");
             house = new home(character);
         }
         this.setVisible(false);
         house.setVisible(true);
     }//GEN-LAST:event_homeBttnActionPerformed
+    //variable to track the number of correct answers
     int numCorrect = 0;
     private void submitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBttnActionPerformed
-        // TODO add your handling code here:
-        
+        //if the selected item is the same as the correct answer at the same index of the correct array the numCorrect increases 
         if(correct[numOne] == answerOne.getSelectedItem()){
             numCorrect++;
         }
-
+        //checks for correct again
         if(correct[numTwo] == answerTwo.getSelectedItem()){
             numCorrect++;
         }
-
+        //checks for correct again
         if(correct[numThree] == answerThree.getSelectedItem()){
             numCorrect++;
         }
-        double d = character.getFire();
-        System.out.println(d);
-
+        //gets the earth value
+        double e = character.getEarth();
+        
+        //adds the correct amount to the character's earth value
         switch (numCorrect) {
             case 1:
-            System.out.println("1");
-            character.setWater(d + 0.3);
-            break;
+                character.setEarth(e + 0.3);
+                break;
             case 2:
-            System.out.println("2");
-            character.setWater(d + 0.6);
-            break;
+                character.setEarth(e + 0.6);
+                break;
             case 3:
-            System.out.println("3");
-            character.setWater(d + 1.0);
-            break;
+                character.setEarth(e + 1.0);
+                break;
             default:
-            break;
+                break;
         }
+        //closes current form and opens training form
         if(train == null){
             train = new training(character);
         }
@@ -186,6 +220,21 @@ public class earth extends javax.swing.JFrame {
         train.setVisible(true);
     }//GEN-LAST:event_submitBttnActionPerformed
 
+    private void skipOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipOneActionPerformed
+        // calls the skipQuestion method
+        skipQuestion();
+    }//GEN-LAST:event_skipOneActionPerformed
+
+    private void skipTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipTwoActionPerformed
+        // calls the skipQuestion method
+        skipQuestion();
+    }//GEN-LAST:event_skipTwoActionPerformed
+
+    private void skipThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipThreeActionPerformed
+        // calls the skipQuestion method
+        skipQuestion();
+    }//GEN-LAST:event_skipThreeActionPerformed
+//global variables for the question and answer arrays 
 String[] questions = {"The climate is made of five components, which relates to rocks and sediments?", 
                           "Offshore earthquakes can cause ________", 
                           "______% of the energy in an earthquake is seismic", 
@@ -266,11 +315,13 @@ String[] questions = {"The climate is made of five components, which relates to 
                         "46",
                         "Overgrazing"};
     
+    //sets random numbers for 1-3 (used for choosing/finding questions)
     Random rand = new Random(); 
     int numOne = rand.nextInt((15 - 1) + 1) + 1;
     int numTwo = rand.nextInt((15 - 1) + 1) + 1;
     int numThree = rand.nextInt((15 - 1) + 1) + 1;
     
+    //chooses three question and calls the random order method
     public void chooseQuestions(){           
         questionOne.setText(questions[numOne]);
         ranOrder(numOne, answerOne);
@@ -282,9 +333,11 @@ String[] questions = {"The climate is made of five components, which relates to 
         ranOrder(numThree, answerThree);
     }
     
+    //randomizes the order of the answers
     public void ranOrder(int n, JComboBox<String> question){
-        Random rand = new Random(); 
+        //makes a random number between 1 and 4, that will indicated which of the four slots the correct answer should be in
         int order = rand.nextInt((4 - 1) + 1) + 1;
+        //if it is 1 --> first slot, 2 --> second slot and so on
         if(order <= 1){
             question.addItem(correct[n]);
             question.addItem(wrong1[n]);
@@ -310,15 +363,18 @@ String[] questions = {"The climate is made of five components, which relates to 
             question.addItem(correct[n]);
         }       
     }
+    //handles the clicking of the skip question button
     public void skipQuestion(){
+        //gets the XP value of the character
         int xpValue = character.getXP();
+        //if they have more than 1 xp, the number of correct answers increases by one, and the xp value drops by 1
         if(xpValue >= 1){
             character.setXP(xpValue - 1);
             numCorrect++;
         }
+        //if not they are notified with a pop up message
         else{
-            JOptionPane optionPane = new JOptionPane("You Do Not Have Enough XP to skip");
-            optionPane.setVisible(true);
+            JOptionPane.showMessageDialog (null, "You Don't Have Enough XP to Skip a Question", "Not Allowed", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -331,6 +387,9 @@ String[] questions = {"The climate is made of five components, which relates to 
     private javax.swing.JLabel questionOne;
     private javax.swing.JLabel questionThree;
     private javax.swing.JLabel questionTwo;
+    private javax.swing.JButton skipOne;
+    private javax.swing.JButton skipThree;
+    private javax.swing.JButton skipTwo;
     private javax.swing.JButton submitBttn;
     // End of variables declaration//GEN-END:variables
 }

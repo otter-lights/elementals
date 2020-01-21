@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Elementals - Rachel
+ * this is the form that will ask random question quizzes about the ice topic
  */
 package elementals;
 
@@ -170,7 +169,7 @@ public class ice extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBttnActionPerformed
-        // TODO add your handling code here:
+        // closes the current form and opens home form
         if(house == null){
             System.out.println("yeet");
             house = new home(character);
@@ -178,40 +177,38 @@ public class ice extends javax.swing.JFrame {
         this.setVisible(false);
         house.setVisible(true);
     }//GEN-LAST:event_homeBttnActionPerformed
+    //variable to track number of correct answers
     int numCorrect = 0;
     private void submitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBttnActionPerformed
-        // TODO add your handling code here:
-        
+        //if the selected item is the same as the correct answer at the same index of the correct array the numCorrect increases         
         if(correct[numOne] == answerOne.getSelectedItem()){
             numCorrect++;
         }
-
+        //checks for correct again
         if(correct[numTwo] == answerTwo.getSelectedItem()){
             numCorrect++;
         }
-
+        //checks for correct again
         if(correct[numThree] == answerThree.getSelectedItem()){
             numCorrect++;
         }
-        double d = character.getWater();
-        System.out.println(d);
-
+        //gets the ice value
+        double d = character.getIce();
+        //adds the correct amount to the character's ice value
         switch (numCorrect) {
             case 1:
-            System.out.println("1");
-            character.setWater(d + 0.3);
-            break;
+                character.setIce(d + 0.3);
+                break;
             case 2:
-            System.out.println("2");
-            character.setWater(d + 0.6);
-            break;
+                character.setIce(d + 0.6);
+                break;
             case 3:
-            System.out.println("3");
-            character.setWater(d + 1.0);
-            break;
+                character.setIce(d + 1.0);
+                break;
             default:
-            break;
+                break;
         }
+        //closes current form and opens training form
         if(train == null){
             train = new training(character);
         }
@@ -220,20 +217,20 @@ public class ice extends javax.swing.JFrame {
     }//GEN-LAST:event_submitBttnActionPerformed
 
     private void skipOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipOneActionPerformed
-        // TODO add your handling code here:
+        // calls the skipQuestion method
         skipQuestion();
     }//GEN-LAST:event_skipOneActionPerformed
 
     private void skipTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipTwoActionPerformed
-        // TODO add your handling code here:
+        // calls the skipQuestion method
         skipQuestion();
     }//GEN-LAST:event_skipTwoActionPerformed
 
     private void skipThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipThreeActionPerformed
-        // TODO add your handling code here:
+        // calls the skipQuestion method
         skipQuestion();
     }//GEN-LAST:event_skipThreeActionPerformed
-    
+    //global variables for the question and answer arrays 
     String[] questions = {"The climate is made of five components, which ice?", 
                           "___% of land area is covered in glacial ice ", 
                           "What colour of glacier indicated trapped air bubbles beneath the ice?", 
@@ -314,11 +311,13 @@ public class ice extends javax.swing.JFrame {
                         "Boston",
                         "70"};
     
+    //sets random numbers for 1-3 (used for choosing/finding questions)
     Random rand = new Random(); 
     int numOne = rand.nextInt((15 - 1) + 1) + 1;
     int numTwo = rand.nextInt((15 - 1) + 1) + 1;
     int numThree = rand.nextInt((15 - 1) + 1) + 1;
     
+    //chooses three question and calls the random order method
     public void chooseQuestions(){           
         questionOne.setText(questions[numOne]);
         ranOrder(numOne, answerOne);
@@ -330,9 +329,11 @@ public class ice extends javax.swing.JFrame {
         ranOrder(numThree, answerThree);
     }
     
+    //randomizes the order of the answers
     public void ranOrder(int n, JComboBox<String> question){
-        Random rand = new Random(); 
+        //makes a random number between 1 and 4, that will indicated which of the four slots the correct answer should be in
         int order = rand.nextInt((4 - 1) + 1) + 1;
+        //if it is 1 --> first slot, 2 --> second slot and so on
         if(order <= 1){
             question.addItem(correct[n]);
             question.addItem(wrong1[n]);
@@ -356,18 +357,20 @@ public class ice extends javax.swing.JFrame {
             question.addItem(wrong2[n]);
             question.addItem(wrong3[n]);
             question.addItem(correct[n]);
-        }
-        
+        }       
     }
+    //handles the clicking of the skip question button
     public void skipQuestion(){
-        int xpValue = character.getXP();    
+        //gets the XP value of the character
+        int xpValue = character.getXP();
+        //if they have more than 1 xp, the number of correct answers increases by one, and the xp value drops by 1
         if(xpValue >= 1){
             character.setXP(xpValue - 1);
             numCorrect++;
-            System.out.println(xpValue);
         }
+        //if not they are notified with a pop up message
         else{
-             JOptionPane.showMessageDialog (null, "You Don't Have Enough XP to Skip", "Not Allowed", JOptionPane.INFORMATION_MESSAGE);           
+            JOptionPane.showMessageDialog (null, "You Don't Have Enough XP to Skip a Question", "Not Allowed", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
