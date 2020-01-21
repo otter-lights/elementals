@@ -135,18 +135,27 @@ public class battle extends javax.swing.JFrame {
         double playerAttack;
         double playerMod;
         
+        btnFire.setEnabled(true);
+        btnWater.setEnabled(true);
+        btnIce.setEnabled(true);
+        btnEarth.setEnabled(true);
+        
         if(player.equals(new Ice())){
             playerAttack = c.getIce();
             monMod = monster.getIM();
+            btnIce.setEnabled(false);
         }else if(player.equals(new Fire())){
             playerAttack = c.getFire();
             monMod = monster.getFM();
+            btnFire.setEnabled(false);
         }else if(player.equals(new Water())){
             playerAttack = c.getWater();
             monMod = monster.getWM();
+            btnWater.setEnabled(false);
         }else{
             playerAttack = c.getEarth();
             monMod = 1.0;
+            btnEarth.setEnabled(false);
         }
         
         if(monster.equals(new Ice())){
