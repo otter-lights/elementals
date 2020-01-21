@@ -44,4 +44,19 @@ public class Element {
     }public void setIM(double im){
         iceMod = im;
     }
+    
+    public String toString(){
+        if(this.equals(new Earth())){
+            return "Earth";
+        }else if(this.equals(new Fire())){
+            return "Fire";
+        }else if(this.equals(new Water())){
+            return "Water";
+        }else if(this.equals(new Ice())){
+            return "Ice";
+        }else{
+            return "Unknown";
+        }
+    }
+        
 }
