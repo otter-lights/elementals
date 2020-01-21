@@ -99,7 +99,6 @@ public class training extends javax.swing.JFrame {
         jLabel7.setText(" ");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/water-icon.png"))); // NOI18N
-        jLabel8.setText(" ");
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/ice-icon.png"))); // NOI18N
         jLabel9.setText(" ");
@@ -124,8 +123,8 @@ public class training extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addComponent(waterStat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
+                        .addComponent(jLabel9)
+                        .addGap(7, 7, 7)
                         .addComponent(iceStat, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()

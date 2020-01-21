@@ -5,6 +5,7 @@
 package elementals;
 
 //imports for the program
+import java.text.DecimalFormat;
 import java.util.Random;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -197,17 +198,18 @@ public class earth extends javax.swing.JFrame {
         }
         //gets the earth value
         double e = character.getEarth();
-        
+        //creates a new decimal format to save values to two decimals
+        DecimalFormat numberFormat = new DecimalFormat("0.0");
         //adds the correct amount to the character's earth value
         switch (numCorrect) {
             case 1:
-                character.setEarth(e + 0.3);
+                character.setEarth(Double.parseDouble(numberFormat.format(e + 0.3)));
                 break;
             case 2:
-                character.setEarth(e + 0.6);
+                character.setEarth(Double.parseDouble(numberFormat.format(e + 0.6)));
                 break;
             case 3:
-                character.setEarth(e + 1.0);
+                character.setEarth(Double.parseDouble(numberFormat.format(e + 1.0)));
                 break;
             default:
                 break;

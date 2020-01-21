@@ -4,6 +4,7 @@
  */
 package elementals;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -207,17 +208,19 @@ public class water extends javax.swing.JFrame {
             numCorrect++;
         }
         //gets the water value
-        double d = character.getWater();
+        double w = character.getWater();
+        //creates a new decimal format to save values to two decimals
+        DecimalFormat numberFormat = new DecimalFormat("0.0");
         //adds the correct amount to the character's water value
         switch (numCorrect) {
             case 1:
-                character.setWater(d + 0.3);
+                character.setWater(Double.parseDouble(numberFormat.format(w + 0.3)));
                 break;
             case 2:
-                character.setWater(d + 0.6);
+                character.setWater(Double.parseDouble(numberFormat.format(w + 0.6)));
                 break;
             case 3:
-                character.setWater(d + 1.0);
+                character.setWater(Double.parseDouble(numberFormat.format(w + 1.0)));
                 break;
             default:
                 break;

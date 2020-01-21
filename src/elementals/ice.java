@@ -4,6 +4,7 @@
  */
 package elementals;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -193,17 +194,19 @@ public class ice extends javax.swing.JFrame {
             numCorrect++;
         }
         //gets the ice value
-        double d = character.getIce();
+        double i = character.getIce();
+        //creates a new decimal format to save values to two decimals
+        DecimalFormat numberFormat = new DecimalFormat("0.0");
         //adds the correct amount to the character's ice value
         switch (numCorrect) {
             case 1:
-                character.setIce(d + 0.3);
+                character.setIce(Double.parseDouble(numberFormat.format(i + 0.3)));
                 break;
             case 2:
-                character.setIce(d + 0.6);
+                character.setIce(Double.parseDouble(numberFormat.format(i + 0.6)));
                 break;
             case 3:
-                character.setIce(d + 1.0);
+                character.setIce(Double.parseDouble(numberFormat.format(i + 1.0)));
                 break;
             default:
                 break;

@@ -4,6 +4,7 @@
  */
 package elementals;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -191,17 +192,19 @@ public class fire extends javax.swing.JFrame {
             numCorrect++;
         }
         //gets the fire value
-        double d = character.getFire();
+        double f = character.getFire();
+        //creates a new decimal format to save values to two decimals
+        DecimalFormat numberFormat = new DecimalFormat("0.0");
         //adds the correct amount to the character's fire value
         switch (numCorrect) {
             case 1:
-                character.setFire(d + 0.3);
+                character.setFire(Double.parseDouble(numberFormat.format(f + 0.3)));
                 break;
             case 2:
-                character.setFire(d + 0.6);
+                character.setFire(Double.parseDouble(numberFormat.format(f + 0.6)));
                 break;
             case 3:
-                character.setFire(d + 1.0);
+                character.setFire(Double.parseDouble(numberFormat.format(f + 1.0)));
                 break;
             default:
                 break;
