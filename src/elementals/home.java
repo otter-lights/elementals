@@ -155,6 +155,7 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTrainActionPerformed
 
     private void btnBattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBattleActionPerformed
+        
         this.setVisible(false);
         new battle(c).setVisible(true);
     }//GEN-LAST:event_btnBattleActionPerformed
@@ -199,6 +200,8 @@ public class home extends javax.swing.JFrame {
         catch(IOException e){
             System.out.println(e);
         }
+        
+        System.exit(0);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
 

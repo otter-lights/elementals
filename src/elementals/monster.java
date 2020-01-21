@@ -13,6 +13,7 @@ public class monster extends being{
     
     protected int health;
     
+    
     public monster(String n, double f, double e, double i, double w, int h){
         
         super(n, f, e, i, w);
