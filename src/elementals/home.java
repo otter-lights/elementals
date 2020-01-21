@@ -200,6 +200,8 @@ public class home extends javax.swing.JFrame {
         catch(IOException e){
             System.out.println(e);
         }
+        
+        System.exit(0);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
 
