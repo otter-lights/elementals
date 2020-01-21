@@ -218,7 +218,7 @@ public class training extends javax.swing.JFrame {
             this.setVisible(false); 
             fireForm.setVisible(true);
         }
-        else{
+        else if(elemSelect.getSelectedItem() == "ICE"){
             if(iceForm == null){
                 iceForm = new ice(character);
             }    

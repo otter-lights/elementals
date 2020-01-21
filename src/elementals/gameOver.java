@@ -4,6 +4,7 @@
  */
 package elementals;
 //imports file and option pane elements
+import java.awt.Color;
 import java.io.File;
 import javax.swing.JOptionPane;
 
@@ -21,6 +22,11 @@ public class gameOver extends javax.swing.JFrame {
      */
     public gameOver(player c) {
         initComponents();
+        
+        //set background color
+        Color home = new Color(247,174,248);
+        this.getContentPane().setBackground(home);
+        
         character = c;
     }
     

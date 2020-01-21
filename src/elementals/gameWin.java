@@ -4,6 +4,7 @@
  */
 package elementals;
 
+import java.awt.Color;
 import java.io.File;
 
 /**
@@ -17,7 +18,11 @@ public class gameWin extends javax.swing.JPanel {
      * Creates new form gameWin
      */
     public gameWin(player c) {
+        Color home = new Color(247,174,248);
         initComponents();
+        //set background color
+        //Color home = new Color(247,174,248);
+        //this.getContentPane().setBackground(home);
         character = c;
     }
 
@@ -33,6 +38,8 @@ public class gameWin extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         exitBttn = new javax.swing.JButton();
         restartBttn = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(247, 174, 248));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         jLabel1.setText("You Win!");

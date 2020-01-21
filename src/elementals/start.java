@@ -4,6 +4,8 @@
  */
 package elementals;
 
+import java.awt.Color;
+
 /**
  *
  * @author rachelroutly
@@ -15,6 +17,10 @@ public class start extends javax.swing.JFrame {
      */
     public start() {
         initComponents();
+        
+        //set background color
+        Color home = new Color(247,174,248);
+        this.getContentPane().setBackground(home);
     }
     //create variables for the two forms created
     loginForm log;
@@ -41,7 +47,7 @@ public class start extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/elementalslogoicon.png"))); // NOI18N
 
-        login.setBackground(new java.awt.Color(145, 145, 233));
+        login.setBackground(new java.awt.Color(132, 2, 62));
         login.setText("Login");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,7 +55,7 @@ public class start extends javax.swing.JFrame {
             }
         });
 
-        newGame.setBackground(new java.awt.Color(145, 145, 233));
+        newGame.setBackground(new java.awt.Color(234, 99, 140));
         newGame.setText("New Game");
         newGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
