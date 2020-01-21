@@ -127,7 +127,9 @@ public class battle extends javax.swing.JFrame {
         }
     }
     
-    private void attack(Element player, Element monster){
+    private void attack(Element player){
+        Element monster = monsterAttack();
+        
         double monAttack;
         double monMod;
         double playerAttack;
@@ -238,12 +240,32 @@ public class battle extends javax.swing.JFrame {
         jLabel6.setText("Enemy Stats");
 
         btnEarth.setText("Earth");
+        btnEarth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEarthActionPerformed(evt);
+            }
+        });
 
         btnFire.setText("Fire");
+        btnFire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFireActionPerformed(evt);
+            }
+        });
 
         btnWater.setText("Water");
+        btnWater.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWaterActionPerformed(evt);
+            }
+        });
 
         btnIce.setText("Ice");
+        btnIce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIceActionPerformed(evt);
+            }
+        });
 
         lblPlayerHealth.setText("❤ ❤ ❤ ");
 
@@ -340,6 +362,22 @@ public class battle extends javax.swing.JFrame {
         this.setVisible(false);
         new home(c).setVisible(true);
     }//GEN-LAST:event_btnFleeActionPerformed
+
+    private void btnEarthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEarthActionPerformed
+        attack(new Earth());
+    }//GEN-LAST:event_btnEarthActionPerformed
+
+    private void btnFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFireActionPerformed
+        attack(new Fire());
+    }//GEN-LAST:event_btnFireActionPerformed
+
+    private void btnWaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWaterActionPerformed
+        attack(new Water());
+    }//GEN-LAST:event_btnWaterActionPerformed
+
+    private void btnIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIceActionPerformed
+        attack(new Ice());
+    }//GEN-LAST:event_btnIceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

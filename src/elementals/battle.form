@@ -160,21 +160,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Earth"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEarthActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnFire">
       <Properties>
         <Property name="text" type="java.lang.String" value="Fire"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFireActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnWater">
       <Properties>
         <Property name="text" type="java.lang.String" value="Water"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnWaterActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnIce">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPlayerHealth">
       <Properties>
