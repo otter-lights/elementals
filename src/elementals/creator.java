@@ -261,8 +261,11 @@ public class creator extends javax.swing.JFrame {
     double fire, earth, ice, water;
     
     private void fireBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fireBttnActionPerformed
-        //gets the next double and multiplies it by 10 (to get # out of 10)
-        double num = ran.nextDouble() * 10.0;        
+        //gets two doubles, between 1-5 and adds them together, this makes it more likely to get mid range numbers
+        double num1 = ran.nextDouble() * 5.0;  
+        double num2 = ran.nextDouble() * 5.0; 
+        
+        double num = num1 + num2;       
         //sets fire to the random number, formated to one decimal
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         fire = Double.parseDouble(numberFormat.format(num));
@@ -273,8 +276,11 @@ public class creator extends javax.swing.JFrame {
     }//GEN-LAST:event_fireBttnActionPerformed
 
     private void earthBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_earthBttnActionPerformed
-        //gets the next double and multiplies it by 10 (to get # out of 10)
-        double num = ran.nextDouble() * 10.0;  
+        //gets two doubles, between 1-5 and adds them together, this makes it more likely to get mid range numbers
+        double num1 = ran.nextDouble() * 5.0;  
+        double num2 = ran.nextDouble() * 5.0; 
+        
+        double num = num1 + num2; 
         //sets ice to the next random number, formatted to one decimal 
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         earth = Double.parseDouble(numberFormat.format(num));
@@ -285,8 +291,11 @@ public class creator extends javax.swing.JFrame {
     }//GEN-LAST:event_earthBttnActionPerformed
 
     private void waterBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterBttnActionPerformed
-        //gets the next double and multiplies it by 10 (to get # out of 10)
-        double num = ran.nextDouble() * 10.0;   
+        //gets two doubles, between 1-5 and adds them together, this makes it more likely to get mid range numbers
+        double num1 = ran.nextDouble() * 5.0;  
+        double num2 = ran.nextDouble() * 5.0; 
+        
+        double num = num1 + num2;  
         //sets water to the next double formatted to one decimal place
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         water = Double.parseDouble(numberFormat.format(num));
@@ -297,8 +306,11 @@ public class creator extends javax.swing.JFrame {
     }//GEN-LAST:event_waterBttnActionPerformed
 
     private void iceBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iceBttnActionPerformed
-        //gets the next double and multiplies it by 10 (to get # out of 10)
-        double num = ran.nextDouble() * 10.0;    
+        //gets two doubles, between 1-5 and adds them together, this makes it more likely to get mid range numbers
+        double num1 = ran.nextDouble() * 5.0;  
+        double num2 = ran.nextDouble() * 5.0; 
+        
+        double num = num1 + num2;
         //sets ice to the next double formatted to one decimal place
         DecimalFormat numberFormat = new DecimalFormat("0.0");
         ice = Double.parseDouble(numberFormat.format(num));
