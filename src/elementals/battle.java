@@ -17,6 +17,7 @@ import Elements.Fire;
 import Elements.Water;
 import Elements.Ice;
 import Elements.Earth;
+import java.awt.Color;
 //how the computer decides things
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -43,6 +44,9 @@ public class battle extends javax.swing.JFrame {
      */
     public battle(player a) {
         initComponents();
+        //set background color
+        Color battle = new Color(255,129,106);
+        this.getContentPane().setBackground(battle);
         
         c = a;
         level = c.getXP();

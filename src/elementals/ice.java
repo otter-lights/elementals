@@ -4,6 +4,7 @@
  */
 package elementals;
 
+import java.awt.Color;
 import java.text.DecimalFormat;
 import java.util.Random;
 import javax.swing.JComboBox;
@@ -24,6 +25,9 @@ public class ice extends javax.swing.JFrame {
      */
     public ice(player c) {
         initComponents();
+        //set background color
+        Color train = new Color(255,249,165);
+        this.getContentPane().setBackground(train);
         character = c;
         chooseQuestions();
         iceVal.setText(String.valueOf(character.getIce()));
@@ -179,17 +183,21 @@ public class ice extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBttnActionPerformed
     //variable to track number of correct answers
     int numCorrect = 0;
+    //checks which questions were skipped to ensure that points aren't counter twice
+    boolean skipped1 = false;
+    boolean skipped2 = false;
+    boolean skipped3 = false;
     private void submitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBttnActionPerformed
         //if the selected item is the same as the correct answer at the same index of the correct array the numCorrect increases         
-        if(correct[numOne] == answerOne.getSelectedItem()){
+        if((correct[numOne] == answerOne.getSelectedItem()) && skipped1 == false){
             numCorrect++;
         }
         //checks for correct again
-        if(correct[numTwo] == answerTwo.getSelectedItem()){
+        if((correct[numTwo] == answerTwo.getSelectedItem()) && skipped2 == false){
             numCorrect++;
         }
         //checks for correct again
-        if(correct[numThree] == answerThree.getSelectedItem()){
+        if((correct[numThree] == answerThree.getSelectedItem()) && skipped3 == false){
             numCorrect++;
         }
         //gets the ice value
@@ -223,16 +231,22 @@ public class ice extends javax.swing.JFrame {
     private void skipOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipOneActionPerformed
         // calls the skipQuestion method
         skipQuestion();
+        skipped1 = true;
+        skipOne.setEnabled(false);
     }//GEN-LAST:event_skipOneActionPerformed
 
     private void skipTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipTwoActionPerformed
         // calls the skipQuestion method
         skipQuestion();
+        skipped2 = true;
+        skipTwo.setEnabled(false);
     }//GEN-LAST:event_skipTwoActionPerformed
 
     private void skipThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipThreeActionPerformed
         // calls the skipQuestion method
         skipQuestion();
+        skipped3 = true;
+        skipThree.setEnabled(false);
     }//GEN-LAST:event_skipThreeActionPerformed
     //global variables for the question and answer arrays 
     String[] questions = {"The climate is made of five components, which ice?", 

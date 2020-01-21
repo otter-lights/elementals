@@ -32,6 +32,9 @@ public class creator extends javax.swing.JFrame {
      */
     public creator(start s) {
         initComponents();
+        //set background color
+        Color creative = new Color(234,99,140);
+        this.getContentPane().setBackground(creative);
         //placing the colour chooser in the JPanel
         colorChooser.setPreviewPanel(new JPanel());
         starter = s;

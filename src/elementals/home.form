@@ -24,28 +24,39 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblIce" max="32767" attributes="0"/>
-                  <Component id="lblWater" max="32767" attributes="0"/>
-                  <Component id="lblFire" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="btnLogout" min="-2" pref="175" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnTrain" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="lblHits" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnLogout" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnTrain" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                  <Component id="lblHits" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblIce" max="32767" attributes="0"/>
+                                  <Component id="lblWater" max="32767" attributes="0"/>
+                                  <Component id="lblFire" max="32767" attributes="0"/>
+                                  <Component id="lblEarth" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="lblEarth" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="aniCharacter" min="-2" pref="175" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblName" min="-2" pref="175" max="-2" attributes="0"/>
-                      <Component id="btnBattle" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="aniCharacter" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblName" min="-2" pref="175" max="-2" attributes="0"/>
+                              <Component id="btnBattle" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -133,6 +144,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnBattle">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="6a" green="81" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="To Next Battle"/>
       </Properties>
       <Events>
@@ -141,6 +155,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnLogout">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="e9" green="91" red="91" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Logout"/>
       </Properties>
       <Events>
@@ -149,7 +166,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblHits">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Hitpoints:"/>
+        <Property name="text" type="java.lang.String" value="XP:"/>
       </Properties>
     </Component>
   </SubComponents>

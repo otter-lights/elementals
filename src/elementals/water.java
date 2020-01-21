@@ -4,6 +4,7 @@
  */
 package elementals;
 
+import java.awt.Color;
 import java.text.DecimalFormat;
 import java.util.Random;
 import javax.swing.JComboBox;
@@ -24,6 +25,9 @@ public class water extends javax.swing.JFrame {
     public water(player c) {
         character = c;
         initComponents();
+        //set back ground colouring
+        Color train = new Color(255,249,165);
+        this.getContentPane().setBackground(train);
         chooseQuestions();
         waterVal.setText(String.valueOf(character.getWater()));
     }
@@ -193,19 +197,24 @@ public class water extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     //variable to track number of correct answers
     int numCorrect = 0;
+    //checks which questions were skipped to ensure that points aren't counter twice
+    boolean skipped1 = false;
+    boolean skipped2 = false;
+    boolean skipped3 = false;
     private void submitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBttnActionPerformed
         //if the selected item is the same as the correct answer at the same index of the correct array the numCorrect increases         
-        if(correct[numOne] == answerOne.getSelectedItem()){
+        if((correct[numOne] == answerOne.getSelectedItem()) && skipped1 == false){
             numCorrect++;
         }
         //checks for correct again
-        if(correct[numTwo] == answerTwo.getSelectedItem()){
+        if((correct[numTwo] == answerTwo.getSelectedItem()) && skipped2 == false){
             numCorrect++;
         }
         //checks for correct again
-        if(correct[numThree] == answerThree.getSelectedItem()){
+        if((correct[numThree] == answerThree.getSelectedItem()) && skipped3 == false){
             numCorrect++;
         }
+
         //gets the water value
         double w = character.getWater();
         //creates a new decimal format to save values to two decimals
@@ -258,16 +267,22 @@ public class water extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // calls the skipQuestion method
         skipQuestion();
+        skipped1 = true;
+        jButton1.setEnabled(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // calls the skipQuestion method
         skipQuestion();
+        skipped2 = true;
+        jButton2.setEnabled(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // calls the skipQuestion method
         skipQuestion();
+        skipped3 = true;
+        jButton3.setEnabled(false);
     }//GEN-LAST:event_jButton3ActionPerformed
     
     //global variables for the question and answer arrays 

@@ -71,7 +71,7 @@
     <Component class="javax.swing.JButton" name="login">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e9" green="91" red="91" type="rgb"/>
+          <Color blue="3e" green="2" red="84" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Login"/>
       </Properties>
@@ -82,7 +82,7 @@
     <Component class="javax.swing.JButton" name="newGame">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e9" green="91" red="91" type="rgb"/>
+          <Color blue="8c" green="63" red="ea" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="New Game"/>
       </Properties>
