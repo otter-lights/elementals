@@ -265,8 +265,9 @@ public class battle extends javax.swing.JFrame {
             if(monHealth <= 0){//in the case that the monster dies
                 //message to user that they win the encounter
                 JOptionPane.showMessageDialog(null, "Great work!\nYou Win!\n\nYou earned " + expGain + " experience");
+                
                 //add XP
-                c.setXP(c.getXP() + exp);
+                c.addXP(expGain);
                 
                 
                 if(c.getXP() >= 20){//in the case that the player has enough XP to win the game

@@ -76,6 +76,9 @@ public class player extends being{
     public void setXP(int xp){
         exp = xp;
     }
+    public void addXP(int xp){
+        exp += xp;
+    }
     @Override
     public String toString(){
         return(username + "\n" + 
