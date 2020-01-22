@@ -187,24 +187,24 @@ public class battle extends javax.swing.JFrame {
         
         switch(monster){
             case 0:
-                monAttack = c.getEarth();
+                monAttack = m.getEarth();
                 playerMod = 1.0;
                 break;
             case 1:
-                monAttack = c.getFire();
+                monAttack = m.getFire();
                 playerMod = pType.getFM();
                 break;
             case 2:
-                monAttack = c.getWater();
+                monAttack = m.getWater();
                 playerMod = pType.getWM();
                 break;
             case 3:
-                monAttack = c.getIce();
+                monAttack = m.getIce();
                 playerMod = pType.getIM();
                 break;
             default:
                 System.out.println("Monster attack comparison error");
-                monAttack = c.getEarth();
+                monAttack = m.getEarth();
                 playerMod = 1.0;
                 break;
         }
