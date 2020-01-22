@@ -69,19 +69,25 @@ public class training extends javax.swing.JFrame {
 
         iceStat.setText("   ");
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Luminari", 0, 18)); // NOI18N
         jLabel1.setText("Which Area Shall You Train In?");
 
+        elemSelect.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         elemSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EARTH", "FIRE", "WATER", "ICE" }));
 
+        jLabel2.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jLabel2.setText("Train to Improve Your Element Scores ");
 
+        jLabel3.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jLabel3.setText("One Correct Question = +0.3");
 
+        jLabel4.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jLabel4.setText("Two Correct Questions = +0.6");
 
+        jLabel5.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jLabel5.setText("Three Correct Questions = +1.0");
 
+        trainBttn.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         trainBttn.setText("Start Training");
         trainBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +95,7 @@ public class training extends javax.swing.JFrame {
             }
         });
 
+        homeBttn.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         homeBttn.setText("Return to Home");
         homeBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +141,7 @@ public class training extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel2)
-                        .addGap(1, 60, Short.MAX_VALUE))
+                        .addGap(1, 62, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -167,7 +174,7 @@ public class training extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(elemSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addComponent(elemSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(trainBttn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

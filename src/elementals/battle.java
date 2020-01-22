@@ -313,6 +313,7 @@ public class battle extends javax.swing.JFrame {
 
         btnEarth.setBackground(new java.awt.Color(136, 91, 32));
         btnEarth.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+        btnEarth.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/earth-icon.png"))); // NOI18N
         btnEarth.setText("Earth");
         btnEarth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -322,6 +323,7 @@ public class battle extends javax.swing.JFrame {
 
         btnFire.setBackground(new java.awt.Color(255, 51, 0));
         btnFire.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+        btnFire.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/fire-icon.png"))); // NOI18N
         btnFire.setText("Fire");
         btnFire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -331,6 +333,7 @@ public class battle extends javax.swing.JFrame {
 
         btnWater.setBackground(new java.awt.Color(51, 102, 255));
         btnWater.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+        btnWater.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/water-icon.png"))); // NOI18N
         btnWater.setText("Water");
         btnWater.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,6 +343,7 @@ public class battle extends javax.swing.JFrame {
 
         btnIce.setBackground(new java.awt.Color(0, 204, 255));
         btnIce.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+        btnIce.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/ice-icon.png"))); // NOI18N
         btnIce.setText("Ice");
         btnIce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

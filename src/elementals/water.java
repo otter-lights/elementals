@@ -81,12 +81,22 @@ public class water extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
+        questionOne.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         questionOne.setText(" --");
 
+        questionTwo.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         questionTwo.setText(" --");
 
+        questionThree.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         questionThree.setText(" --");
 
+        answerOne.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+
+        answerTwo.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+
+        answerThree.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+
+        submitBttn.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         submitBttn.setText("Submit");
         submitBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,6 +109,7 @@ public class water extends javax.swing.JFrame {
 
         waterVal.setText("       ");
 
+        homeBttn.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         homeBttn.setText("Back to Home");
         homeBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +117,7 @@ public class water extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jButton1.setText("Skip");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +125,7 @@ public class water extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jButton2.setText("Skip");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +133,7 @@ public class water extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jButton3.setText("Skip");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

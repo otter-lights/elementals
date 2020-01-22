@@ -75,15 +75,25 @@ public class creator extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Luminari", 1, 24)); // NOI18N
         jLabel1.setText("Character Creation");
 
+        uNameField.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
+
+        pWordField.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jLabel2.setText("Username:");
 
+        jLabel3.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jLabel3.setText("Password:");
 
+        jLabel4.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jLabel4.setText("Character Name: ");
 
+        charNameField.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jLabel5.setText("Choose Your Character's Colour:");
 
         fireBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/fire-icon.png"))); // NOI18N
@@ -122,6 +132,7 @@ public class creator extends javax.swing.JFrame {
 
         iceStat.setText(" ");
 
+        backBttn.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         backBttn.setText("Back To Menu");
         backBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +140,7 @@ public class creator extends javax.swing.JFrame {
             }
         });
 
+        createBttn.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         createBttn.setText("Create Character");
         createBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +148,7 @@ public class creator extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jLabel6.setText("Click to Roll for Statistics");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

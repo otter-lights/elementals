@@ -66,6 +66,7 @@ public class earth extends javax.swing.JFrame {
 
         earthVal.setText("       ");
 
+        homeBttn.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         homeBttn.setText("Back to Home");
         homeBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,12 +74,22 @@ public class earth extends javax.swing.JFrame {
             }
         });
 
+        questionOne.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         questionOne.setText(" --");
 
+        questionTwo.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         questionTwo.setText(" --");
 
+        questionThree.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         questionThree.setText(" --");
 
+        answerOne.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+
+        answerTwo.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+
+        answerThree.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+
+        submitBttn.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         submitBttn.setText("Submit");
         submitBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +97,7 @@ public class earth extends javax.swing.JFrame {
             }
         });
 
+        skipOne.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         skipOne.setText("Skip");
         skipOne.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +105,7 @@ public class earth extends javax.swing.JFrame {
             }
         });
 
+        skipTwo.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         skipTwo.setText("Skip");
         skipTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +113,7 @@ public class earth extends javax.swing.JFrame {
             }
         });
 
+        skipThree.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         skipThree.setText("Skip");
         skipThree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

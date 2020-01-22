@@ -48,6 +48,7 @@ public class start extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementals/images/elementalslogoicon.png"))); // NOI18N
 
         login.setBackground(new java.awt.Color(132, 2, 62));
+        login.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         login.setText("Login");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +57,7 @@ public class start extends javax.swing.JFrame {
         });
 
         newGame.setBackground(new java.awt.Color(234, 99, 140));
+        newGame.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         newGame.setText("New Game");
         newGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +66,7 @@ public class start extends javax.swing.JFrame {
         });
 
         exitBttn.setBackground(new java.awt.Color(145, 145, 233));
+        exitBttn.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         exitBttn.setText("Exit Game");
         exitBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

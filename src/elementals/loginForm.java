@@ -51,22 +51,26 @@ public class loginForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jLabel1.setFont(new java.awt.Font("Papyrus", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Luminari", 1, 24)); // NOI18N
         jLabel1.setText("Login");
 
-        jLabel2.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jLabel2.setText("Username:");
 
-        jLabel3.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         jLabel3.setText("Password:");
 
+        uNameField.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
+
+        loginBttn.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         loginBttn.setText("Login");
         loginBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginBttnActionPerformed(evt);
             }
         });
+
+        pWordField.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 13)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,7 +89,7 @@ public class loginForm extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(uNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                             .addComponent(pWordField))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

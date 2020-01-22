@@ -120,6 +120,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="homeBttn">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Back to Home"/>
       </Properties>
       <Events>
@@ -128,21 +131,33 @@
     </Component>
     <Component class="javax.swing.JLabel" name="questionOne">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value=" --"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="questionTwo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value=" --"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="questionThree">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value=" --"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="answerOne">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
@@ -153,6 +168,9 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="answerTwo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
@@ -163,6 +181,9 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="answerThree">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
@@ -173,6 +194,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="submitBttn">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
       <Events>
@@ -181,6 +205,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="skipTwo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Skip"/>
       </Properties>
       <Events>
@@ -189,6 +216,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="skipOne">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Skip"/>
       </Properties>
       <Events>
@@ -197,6 +227,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="skipThree">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Skip"/>
       </Properties>
       <Events>

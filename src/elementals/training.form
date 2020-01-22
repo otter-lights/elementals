@@ -59,7 +59,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="1" pref="60" max="32767" attributes="0"/>
+                      <EmptySpace min="1" pref="62" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -102,7 +102,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="22" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="elemSelect" pref="54" max="32767" attributes="0"/>
+              <Component id="elemSelect" pref="46" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="trainBttn" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -149,13 +149,16 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="18" style="0"/>
+          <Font name="Luminari" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Which Area Shall You Train In?"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="elemSelect">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
             <StringItem index="0" value="EARTH"/>
@@ -171,26 +174,41 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Train to Improve Your Element Scores "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="One Correct Question = +0.3"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Two Correct Questions = +0.6"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Three Correct Questions = +1.0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="trainBttn">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Start Training"/>
       </Properties>
       <Events>
@@ -199,6 +217,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="homeBttn">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Luminari" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Return to Home"/>
       </Properties>
       <Events>
