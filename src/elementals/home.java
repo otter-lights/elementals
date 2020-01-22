@@ -5,6 +5,7 @@
  */
 package elementals;
 
+//nessesary imports
 import elementals.battle;
 import elementals.player;
 import elementals.training;
@@ -19,6 +20,7 @@ import java.io.IOException;
  */
 public class home extends javax.swing.JFrame {
 
+    //the subject player
     player c;
     
     /**
@@ -29,8 +31,10 @@ public class home extends javax.swing.JFrame {
         //set background color
         Color home = new Color(247,174,248);
         this.getContentPane().setBackground(home);
+        //sets subject player to the given player
         c = a;
         
+        //shows players stats
         lblName.setText("Name: " + c.getName());
         lblEarth.setText("Earth: " + c.getEarth());
         lblFire.setText("Fire: " + c.getFire());
@@ -38,6 +42,7 @@ public class home extends javax.swing.JFrame {
         lblWater.setText("Water: " + c.getWater());
         lblXP.setText("XP: " + c.getXP());
         
+        //shows the players color
         lblPlayer.setBackground(c.getUserColor());
         
     }
@@ -172,13 +177,13 @@ public class home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //if the player chooses to train
     private void btnTrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrainActionPerformed
         
         this.setVisible(false);
         new training(c).setVisible(true);
     }//GEN-LAST:event_btnTrainActionPerformed
-
+    //player chooses to go to next battle
     private void btnBattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBattleActionPerformed
         
         this.setVisible(false);
@@ -223,6 +228,7 @@ public class home extends javax.swing.JFrame {
             System.out.println(e);
         }
         
+        //go back to start
         this.setVisible(false);
         new start().setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
