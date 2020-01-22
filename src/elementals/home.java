@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The Players home page, where they can view their satats and either choose to train or Battle
+ * Nathan Feenstra
  */
 package elementals;
 

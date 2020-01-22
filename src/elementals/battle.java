@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This is the war zone, in both game and code
+ * Here the player fights a monster and either wins and walks of with more XP, loose XP running away, or looses and has to restart
+ * Nathan Feenstra
  */
 package elementals;
 
