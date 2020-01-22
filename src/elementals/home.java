@@ -5,6 +5,9 @@
  */
 package elementals;
 
+import elementals.battle;
+import elementals.player;
+import elementals.training;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileWriter;
@@ -33,9 +36,11 @@ public class home extends javax.swing.JFrame {
         lblFire.setText("Fire: " + c.getFire());
         lblIce.setText("Ice: " + c.getIce());
         lblWater.setText("Water: " + c.getWater());
+        lblHits.setText("XP: " + c.getXP());
+        //lblLevel.setText("Level: " + level);
         
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,7 +55,7 @@ public class home extends javax.swing.JFrame {
         lblWater = new javax.swing.JLabel();
         lblIce = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
-        aniPlayer = new javax.swing.JLabel();
+        aniCharacter = new javax.swing.JLabel();
         btnTrain = new javax.swing.JButton();
         btnBattle = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
@@ -69,8 +74,7 @@ public class home extends javax.swing.JFrame {
 
         lblName.setText("Name:");
 
-        aniPlayer.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        aniPlayer.setOpaque(true);
+        aniCharacter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnTrain.setBackground(new java.awt.Color(255, 249, 165));
         btnTrain.setText("Train Stats");
@@ -110,6 +114,23 @@ public class home extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnTrain, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblHits))
+                                .addGap(24, 24, 24))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblWater, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblFire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblEarth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(aniCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnBattle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -120,25 +141,23 @@ public class home extends javax.swing.JFrame {
                     .addComponent(lblEarth)
                     .addComponent(lblName))
                 .addGap(18, 18, 18)
-                .addComponent(lblFire)
-                .addGap(20, 20, 20)
-                .addComponent(lblWater)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblFire)
+                        .addGap(20, 20, 20)
+                        .addComponent(lblWater)
+                        .addGap(18, 18, 18)
                         .addComponent(lblIce)
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(lblHits))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(aniPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(aniCharacter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTrain)
                     .addComponent(btnBattle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLogout)
-                .addGap(14, 14, 14))
+                .addContainerGap())
         );
 
         pack();
@@ -193,13 +212,12 @@ public class home extends javax.swing.JFrame {
             System.out.println(e);
         }
         
-        //haha Rachel forgot this part
         System.exit(0);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel aniPlayer;
+    private javax.swing.JLabel aniCharacter;
     private javax.swing.JButton btnBattle;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnTrain;
