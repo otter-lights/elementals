@@ -228,12 +228,18 @@ public class battle extends javax.swing.JFrame {
                     + "Opponent chose " + mType.toString() + " -> " + monAttack + " * " + monMod + " = " + (monAttack*monMod));
             
             if(monHealth <= 0){
-                JOptionPane.showMessageDialog(null, "Great work!\nYou Win!\n\nYou earned " + exp + "experience");
+                JOptionPane.showMessageDialog(null, "Great work!\nYou Win!\n\nYou earned " + exp + " experience");
                 
                 c.setXP(c.getXP() + exp);
                 
-                this.setVisible(false);
-                new home(c).setVisible(true);
+                if(c.getXP() >= 20){
+                    this.setVisible(false);
+                    new gameWin(c).setVisible(true);
+                }else{
+                    this.setVisible(false);
+                    new home(c).setVisible(true);  
+                }
+                
             }
             
         }else if(decider < 0){
@@ -256,7 +262,10 @@ public class battle extends javax.swing.JFrame {
             }
             
         }else{
-            JOptionPane.showMessageDialog(null, "tie, nobody wins");
+            JOptionPane.showMessageDialog(null, "tie, nobody wins\n"
+                    + "Info:\n"
+                    + "You Chose " + pType.toString() + " -> " + playerAttack + " * " + playerMod + " = " + (playerAttack*playerMod) + "\n"
+                    + "Opponent chose " + mType.toString() + " -> " + monAttack + " * " + monMod + " = " + (monAttack*monMod));
         }
     }
 
