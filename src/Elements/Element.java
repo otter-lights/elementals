@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * general for all elements
+ * Nathan
  */
 package Elements;
 
@@ -9,16 +8,18 @@ package Elements;
  *
  * @author nathan
  */
-public class Element {
+public abstract class Element {
+    //all elements have these attributes
     protected double fireMod, waterMod, iceMod;
     
     public Element(double fm, double  wm, double im){
+        //set stats
         fireMod = fm;
         waterMod = wm;
         iceMod = im;
         
     }
-    
+    //checks if Elements are the same
     public boolean equals(Element e){
         if(e.getFM() == this.getFM() && e.getWM() == this.getWM() && e.getIM() == this.getIM()){
             return true;
@@ -26,7 +27,7 @@ public class Element {
         return false;
     }
         
-    
+    //getters/setters
     public double getFM(){
         return fireMod;
     }public void setFM(double fm){
@@ -45,6 +46,7 @@ public class Element {
         iceMod = im;
     }
     
+    //returns only the name of the element
     public String toString(){
         if(this.equals(new Earth())){
             return "Earth";

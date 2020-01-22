@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Holds attributes common between monsters and players
+ * Nathan
  */
 package elementals;
 
@@ -10,19 +9,20 @@ package elementals;
  * @author nathan
  */
 public abstract class being {
+    //every being has these attributes
     protected String name;
     protected double fire, earth, ice, water;
 
     public being(String n, double f, double e, double i, double w){
-        
+        //set name
         name = n;
-        
+        //set elemental powers
         fire = f;
         earth = e;
         ice = i;
         water = w;
     }
-    
+    //getter/setters for everything
     public String getName(){
         return(this.name);
     }
@@ -55,6 +55,7 @@ public abstract class being {
         this.water = w;
     }
     
+    //returns all attributes in a String
     @Override
     public String toString(){
         return "Name: " + this.name 

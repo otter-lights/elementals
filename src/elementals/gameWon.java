@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * In the event that the player wins the game
+ * they will see this page
+ * Nathan Feenstra
  */
 package elementals;
 
@@ -111,20 +111,20 @@ public class gameWon extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //if user chooses to exit
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        //if they choose to exit, the current save file will be deleted, and the system will exit
+        //users file gets deleted
         File origFile = new File("src//elementals//character_saves//" + c.getUserName() + ".txt"); 
         origFile.delete();
-        
+        //exits game
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
-
+    //if the yser chooses to restart
     private void btnRestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestartActionPerformed
-        //if the user chooses to end the program, their file is still deleted, but they are returned to the start menu
+        //file still deleted
         File origFile = new File("src//elementals//character_saves//" + c.getUserName() + ".txt"); 
         origFile.delete();
-        
+        //returns to start screen
         this.setVisible(false);
         new start().setVisible(true);
     }//GEN-LAST:event_btnRestartActionPerformed
