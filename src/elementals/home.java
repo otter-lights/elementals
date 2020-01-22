@@ -79,6 +79,7 @@ public class home extends javax.swing.JFrame {
         lblPlayer.setOpaque(true);
 
         btnTrain.setBackground(new java.awt.Color(255, 249, 165));
+        btnTrain.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnTrain.setText("Train Stats");
         btnTrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +88,7 @@ public class home extends javax.swing.JFrame {
         });
 
         btnBattle.setBackground(new java.awt.Color(255, 129, 106));
+        btnBattle.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnBattle.setText("To Next Battle");
         btnBattle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +97,7 @@ public class home extends javax.swing.JFrame {
         });
 
         btnLogout.setBackground(new java.awt.Color(145, 145, 233));
+        btnLogout.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -303,6 +303,7 @@ public class battle extends javax.swing.JFrame {
         jLabel6.setText("Enemy Stats");
 
         btnEarth.setBackground(new java.awt.Color(136, 91, 32));
+        btnEarth.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnEarth.setText("Earth");
         btnEarth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -311,6 +312,7 @@ public class battle extends javax.swing.JFrame {
         });
 
         btnFire.setBackground(new java.awt.Color(255, 51, 0));
+        btnFire.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnFire.setText("Fire");
         btnFire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -319,6 +321,7 @@ public class battle extends javax.swing.JFrame {
         });
 
         btnWater.setBackground(new java.awt.Color(51, 102, 255));
+        btnWater.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnWater.setText("Water");
         btnWater.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -327,6 +330,7 @@ public class battle extends javax.swing.JFrame {
         });
 
         btnIce.setBackground(new java.awt.Color(0, 204, 255));
+        btnIce.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnIce.setText("Ice");
         btnIce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -339,6 +343,7 @@ public class battle extends javax.swing.JFrame {
         lblMonHealth.setText("❤ ❤ ❤ ");
 
         btnFlee.setBackground(new java.awt.Color(51, 51, 51));
+        btnFlee.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnFlee.setText("Flee");
         btnFlee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -346,6 +351,13 @@ public class battle extends javax.swing.JFrame {
             }
         });
 
+        lblMonStats.setEditable(false);
+        lblMonStats.setBackground(new java.awt.Color(0, 204, 204));
+        lblMonStats.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+        lblMonStats.setForeground(new java.awt.Color(255, 51, 51));
+        lblMonStats.setCaretColor(new java.awt.Color(0, 204, 204));
+        lblMonStats.setDragEnabled(false);
+        lblMonStats.setIgnoreRepaint(true);
         jScrollPane1.setViewportView(lblMonStats);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
