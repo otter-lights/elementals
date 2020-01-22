@@ -135,15 +135,20 @@ public class battle extends javax.swing.JFrame {
         switch(monster){
             case 0:
                 mType = new Earth();
+                break;
             case 1:
                 mType = new Fire();
+                break;
             case 2:
                 mType = new Water();
+                break;
             case 3:
                 mType = new Ice();
+                break;
             default:
                 mType = new Earth();
                 System.out.println("Something went wrong with monster attack selection - given number" + monster);
+                break;
         }
         
         switch(player){
@@ -152,46 +157,56 @@ public class battle extends javax.swing.JFrame {
                 playerAttack = c.getEarth();
                 monMod = 1.0;
                 btnEarth.setEnabled(false);
+                break;
             case 1:
                 pType = new Fire();
                 playerAttack = c.getFire();
                 monMod = mType.getFM();
                 btnFire.setEnabled(false);
+                break;
             case 2:
                 pType = new Water();
                 playerAttack = c.getWater();
                 monMod = mType.getWM();
                 btnWater.setEnabled(false);
+                break;
             case 3:
                 pType = new Ice();
                 playerAttack = c.getIce();
                 monMod = mType.getIM();
                 btnIce.setEnabled(false);
+                break;
             default:
                 pType = new Earth();
                 playerAttack = c.getEarth();
                 monMod = 1.0;
                 btnEarth.setEnabled(false);
                 System.out.println("Something went wrong with player attack selection - given number" + player);
+                break;
         }
         
         switch(monster){
             case 0:
                 monAttack = c.getEarth();
                 playerMod = 1.0;
+                break;
             case 1:
                 monAttack = c.getFire();
                 playerMod = pType.getFM();
+                break;
             case 2:
                 monAttack = c.getWater();
                 playerMod = pType.getWM();
+                break;
             case 3:
                 monAttack = c.getIce();
                 playerMod = pType.getIM();
+                break;
             default:
                 System.out.println("Monster attack comparison error");
                 monAttack = c.getEarth();
                 playerMod = 1.0;
+                break;
         }
         
         
