@@ -135,15 +135,20 @@ public class battle extends javax.swing.JFrame {
         switch(monster){
             case 0:
                 mType = new Earth();
+                break;
             case 1:
                 mType = new Fire();
+                break;
             case 2:
                 mType = new Water();
+                break;
             case 3:
                 mType = new Ice();
+                break;
             default:
                 mType = new Earth();
                 System.out.println("Something went wrong with monster attack selection - given number" + monster);
+                break;
         }
         
         switch(player){
@@ -152,46 +157,56 @@ public class battle extends javax.swing.JFrame {
                 playerAttack = c.getEarth();
                 monMod = 1.0;
                 btnEarth.setEnabled(false);
+                break;
             case 1:
                 pType = new Fire();
                 playerAttack = c.getFire();
                 monMod = mType.getFM();
                 btnFire.setEnabled(false);
+                break;
             case 2:
                 pType = new Water();
                 playerAttack = c.getWater();
                 monMod = mType.getWM();
                 btnWater.setEnabled(false);
+                break;
             case 3:
                 pType = new Ice();
                 playerAttack = c.getIce();
                 monMod = mType.getIM();
                 btnIce.setEnabled(false);
+                break;
             default:
                 pType = new Earth();
                 playerAttack = c.getEarth();
                 monMod = 1.0;
                 btnEarth.setEnabled(false);
                 System.out.println("Something went wrong with player attack selection - given number" + player);
+                break;
         }
         
         switch(monster){
             case 0:
-                monAttack = c.getEarth();
+                monAttack = m.getEarth();
                 playerMod = 1.0;
+                break;
             case 1:
-                monAttack = c.getFire();
+                monAttack = m.getFire();
                 playerMod = pType.getFM();
+                break;
             case 2:
-                monAttack = c.getWater();
+                monAttack = m.getWater();
                 playerMod = pType.getWM();
+                break;
             case 3:
-                monAttack = c.getIce();
+                monAttack = m.getIce();
                 playerMod = pType.getIM();
+                break;
             default:
                 System.out.println("Monster attack comparison error");
-                monAttack = c.getEarth();
+                monAttack = m.getEarth();
                 playerMod = 1.0;
+                break;
         }
         
         
@@ -213,12 +228,18 @@ public class battle extends javax.swing.JFrame {
                     + "Opponent chose " + mType.toString() + " -> " + monAttack + " * " + monMod + " = " + (monAttack*monMod));
             
             if(monHealth <= 0){
-                JOptionPane.showMessageDialog(null, "Great work!\nYou Win!\n\nYou earned " + exp + "experience");
+                JOptionPane.showMessageDialog(null, "Great work!\nYou Win!\n\nYou earned " + exp + " experience");
                 
                 c.setXP(c.getXP() + exp);
                 
-                this.setVisible(false);
-                new home(c).setVisible(true);
+                if(c.getXP() >= 20){
+                    this.setVisible(false);
+                    new gameWon(c).setVisible(true);
+                }else{
+                    this.setVisible(false);
+                    new home(c).setVisible(true);  
+                }
+                
             }
             
         }else if(decider < 0){
@@ -241,7 +262,10 @@ public class battle extends javax.swing.JFrame {
             }
             
         }else{
-            JOptionPane.showMessageDialog(null, "tie, nobody wins");
+            JOptionPane.showMessageDialog(null, "tie, nobody wins\n"
+                    + "Info:\n"
+                    + "You Chose " + pType.toString() + " -> " + playerAttack + " * " + playerMod + " = " + (playerAttack*playerMod) + "\n"
+                    + "Opponent chose " + mType.toString() + " -> " + monAttack + " * " + monMod + " = " + (monAttack*monMod));
         }
     }
 
@@ -272,6 +296,7 @@ public class battle extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Battle");
+        setUndecorated(true);
 
         jLabel1.setText("Player");
 
@@ -286,6 +311,8 @@ public class battle extends javax.swing.JFrame {
 
         jLabel6.setText("Enemy Stats");
 
+        btnEarth.setBackground(new java.awt.Color(136, 91, 32));
+        btnEarth.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnEarth.setText("Earth");
         btnEarth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,6 +320,8 @@ public class battle extends javax.swing.JFrame {
             }
         });
 
+        btnFire.setBackground(new java.awt.Color(255, 51, 0));
+        btnFire.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnFire.setText("Fire");
         btnFire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,6 +329,8 @@ public class battle extends javax.swing.JFrame {
             }
         });
 
+        btnWater.setBackground(new java.awt.Color(51, 102, 255));
+        btnWater.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnWater.setText("Water");
         btnWater.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,6 +338,8 @@ public class battle extends javax.swing.JFrame {
             }
         });
 
+        btnIce.setBackground(new java.awt.Color(0, 204, 255));
+        btnIce.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnIce.setText("Ice");
         btnIce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -318,6 +351,8 @@ public class battle extends javax.swing.JFrame {
 
         lblMonHealth.setText("❤ ❤ ❤ ");
 
+        btnFlee.setBackground(new java.awt.Color(51, 51, 51));
+        btnFlee.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnFlee.setText("Flee");
         btnFlee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,6 +360,13 @@ public class battle extends javax.swing.JFrame {
             }
         });
 
+        lblMonStats.setEditable(false);
+        lblMonStats.setBackground(new java.awt.Color(0, 204, 204));
+        lblMonStats.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+        lblMonStats.setForeground(new java.awt.Color(255, 51, 51));
+        lblMonStats.setCaretColor(new java.awt.Color(0, 204, 204));
+        lblMonStats.setDragEnabled(false);
+        lblMonStats.setIgnoreRepaint(true);
         jScrollPane1.setViewportView(lblMonStats);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

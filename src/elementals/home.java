@@ -36,8 +36,9 @@ public class home extends javax.swing.JFrame {
         lblFire.setText("Fire: " + c.getFire());
         lblIce.setText("Ice: " + c.getIce());
         lblWater.setText("Water: " + c.getWater());
-        lblHits.setText("XP: " + c.getXP());
-        //lblLevel.setText("Level: " + level);
+        lblXP.setText("XP: " + c.getXP());
+        
+        lblPlayer.setBackground(c.getUserColor());
         
     }
 
@@ -55,11 +56,11 @@ public class home extends javax.swing.JFrame {
         lblWater = new javax.swing.JLabel();
         lblIce = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
-        aniCharacter = new javax.swing.JLabel();
+        lblPlayer = new javax.swing.JLabel();
         btnTrain = new javax.swing.JButton();
         btnBattle = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        lblHits = new javax.swing.JLabel();
+        lblXP = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -74,9 +75,11 @@ public class home extends javax.swing.JFrame {
 
         lblName.setText("Name:");
 
-        aniCharacter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblPlayer.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblPlayer.setOpaque(true);
 
         btnTrain.setBackground(new java.awt.Color(255, 249, 165));
+        btnTrain.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnTrain.setText("Train Stats");
         btnTrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +88,7 @@ public class home extends javax.swing.JFrame {
         });
 
         btnBattle.setBackground(new java.awt.Color(255, 129, 106));
+        btnBattle.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnBattle.setText("To Next Battle");
         btnBattle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +97,7 @@ public class home extends javax.swing.JFrame {
         });
 
         btnLogout.setBackground(new java.awt.Color(145, 145, 233));
+        btnLogout.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +105,7 @@ public class home extends javax.swing.JFrame {
             }
         });
 
-        lblHits.setText("XP:");
+        lblXP.setText("XP:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,7 +122,7 @@ public class home extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnTrain, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblHits))
+                                    .addComponent(lblXP))
                                 .addGap(24, 24, 24))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,10 +132,9 @@ public class home extends javax.swing.JFrame {
                                     .addComponent(lblEarth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(aniCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnBattle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBattle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -141,23 +145,25 @@ public class home extends javax.swing.JFrame {
                     .addComponent(lblEarth)
                     .addComponent(lblName))
                 .addGap(18, 18, 18)
+                .addComponent(lblFire)
+                .addGap(20, 20, 20)
+                .addComponent(lblWater)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblFire)
-                        .addGap(20, 20, 20)
-                        .addComponent(lblWater)
-                        .addGap(18, 18, 18)
                         .addComponent(lblIce)
                         .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(lblHits))
-                    .addComponent(aniCharacter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblXP))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTrain)
                     .addComponent(btnBattle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLogout)
-                .addContainerGap())
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -173,6 +179,7 @@ public class home extends javax.swing.JFrame {
         
         this.setVisible(false);
         new battle(c).setVisible(true);
+        
     }//GEN-LAST:event_btnBattleActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -212,20 +219,21 @@ public class home extends javax.swing.JFrame {
             System.out.println(e);
         }
         
-        System.exit(0);
+        this.setVisible(false);
+        new start().setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel aniCharacter;
     private javax.swing.JButton btnBattle;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnTrain;
     private javax.swing.JLabel lblEarth;
     private javax.swing.JLabel lblFire;
-    private javax.swing.JLabel lblHits;
     private javax.swing.JLabel lblIce;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPlayer;
     private javax.swing.JLabel lblWater;
+    private javax.swing.JLabel lblXP;
     // End of variables declaration//GEN-END:variables
 }
