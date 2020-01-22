@@ -234,7 +234,7 @@ public class battle extends javax.swing.JFrame {
                 
                 if(c.getXP() >= 20){
                     this.setVisible(false);
-                    new gameWin(c).setVisible(true);
+                    new gameWon(c).setVisible(true);
                 }else{
                     this.setVisible(false);
                     new home(c).setVisible(true);  
