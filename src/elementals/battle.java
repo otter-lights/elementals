@@ -28,12 +28,12 @@ import javax.swing.JOptionPane;
  */
 public class battle extends javax.swing.JFrame {
 
-    
+    //variables to be used throughout the class
     player c;
-    int level, playerHealth, monHealth, exp;
+    int exp, playerHealth, monHealth, expGain;
     ImageIcon ii;
     monster m;
-    
+    //monsters stats
     double monFire;
     double monEarth;
     double monIce;
@@ -48,41 +48,49 @@ public class battle extends javax.swing.JFrame {
         Color battle = new Color(255,129,106);
         this.getContentPane().setBackground(battle);
         
+        //sets the given player to the subject player
         c = a;
-        level = c.getXP();
+        //players current xp
+        exp = c.getXP();
+        //players starting health
         playerHealth = 3;
-        
+        //displays the players stats
         btnEarth.setText("Earth: " + c.getEarth());
         btnFire.setText("Fire: " + c.getFire());
         btnWater.setText("Water: " + c.getWater());
         btnIce.setText("Ice: " + c.getIce());
         
-        if(level < 4){
+        //determines which monster to fight
+        if(exp < 4){
             fill("Blob-Boy");
-        }else if(level < 8){
+        }else if(exp < 8){
             fill("Spike");
         }else{
             fill("Shadow");
         }
     }
     
+    //reads from the monster's file, sets it's stats acordingly and displays those stats
     public void fill(String thing){
         try{
             
             FileReader fr = new FileReader("src//monsters//" + thing + ".txt");
             BufferedReader br = new BufferedReader(fr);
-            
+            //the monster's name
             String monName = br.readLine();
+            lblMonName.setText(monName);
             
+            //monster's health
             String h = br.readLine();
             monHealth = Integer.parseInt(h);           
-    
+            //loop to load up the health onto the health bar
             String H = ""; 
             for(int i = 0; i < monHealth; i++){
                 H += "❤ ";
             }
             lblMonHealth.setText(H);
-
+            
+            //Monster's attack stats
             String f = br.readLine();
             String e = br.readLine();
             String i = br.readLine();
@@ -91,14 +99,17 @@ public class battle extends javax.swing.JFrame {
             monEarth = Double.parseDouble(e);
             monIce = Double.parseDouble(i);
             monWater = Double.parseDouble(w);
-
+            //displays the monster's stats
             lblMonStats.setText("Earth: " + monEarth + "\nFire: " + monFire + "\nWater: " + monWater + "\nIce: " + monIce);
             
+            //the amount of XP the player will gain if this monster is defeated
             String x = br.readLine();
-            exp = Integer.parseInt(x);
+            expGain = Integer.parseInt(x);
             
+            //creates a new monster to hold all of this information for referance later
             m = new monster(thing, monFire, monEarth, monIce, monWater, monHealth);
         }catch(IOException e){
+            //if something goes wrong, you will find it here
             System.out.println(e + ": Error reading monster file: " + thing);
         }
         
@@ -111,27 +122,33 @@ public class battle extends javax.swing.JFrame {
         
     }
     
+    //returns a random number between 0 and 3 - determines which attack the monster will use
     public int monsterAttack(){
         Random ran = new Random();
         return ran.nextInt(4);
     }
     
+    //determines who won the fight
     private void attack(int player){
+        //grabs a random number
         int monster = monsterAttack();
         
+        //monsters strength and modifier against the player
         double monAttack;
         double monMod;
+        //players strength and modifier against the monster
         double playerAttack;
         double playerMod;
-        
+        //resets the buttons
         btnFire.setEnabled(true);
         btnWater.setEnabled(true);
         btnIce.setEnabled(true);
         btnEarth.setEnabled(true);
-        
+        //holds the types of attacks the player and monster will have
         Element mType;
         Element pType;
         
+        //sets the monsters type of attack
         switch(monster){
             case 0:
                 mType = new Earth();
@@ -150,7 +167,7 @@ public class battle extends javax.swing.JFrame {
                 System.out.println("Something went wrong with monster attack selection - given number" + monster);
                 break;
         }
-        
+        //sets the players attack type, and monsters modifier
         switch(player){
             case 0:
                 pType = new Earth();
@@ -184,7 +201,7 @@ public class battle extends javax.swing.JFrame {
                 System.out.println("Something went wrong with player attack selection - given number" + player);
                 break;
         }
-        
+        //sets the monster's attack type, and player's modifier
         switch(monster){
             case 0:
                 monAttack = m.getEarth();
@@ -208,64 +225,81 @@ public class battle extends javax.swing.JFrame {
                 playerMod = 1.0;
                 break;
         }
+        //decide who won the Attack
+        decide(playerAttack, playerMod, monAttack, monMod, pType, mType);
         
+    }
+    
+    private void decide(double playerA, double playerMod, double monA, double monMod, Element pType, Element mType){
+        //apply modifiers and subtract
+        double decider = (playerA * playerMod) - (monA * monMod);
         
-        
-        double decider = (playerAttack * playerMod) - (monAttack * monMod);
-        
-        if(decider > 0){
+        if(decider > 0){//case that the player won
             
+            //subtract from the monsters health
             monHealth--;
+            
+            //diplay new monsters health
             String H = "";
             for(int i = 0; i < monHealth; i++){
                H += "❤ ";
             }
             lblMonHealth.setText(H);
             
+            //message to the user
             JOptionPane.showMessageDialog(null, "You hit your opponent\n"
                     + "Info:\n"
-                    + "You Chose " + pType.toString() + " -> " + playerAttack + " * " + playerMod + " = " + (playerAttack*playerMod) + "\n"
-                    + "Opponent chose " + mType.toString() + " -> " + monAttack + " * " + monMod + " = " + (monAttack*monMod));
+                    + "You Chose " + pType.toString() + " -> " + playerA + " * " + playerMod + " = " + (playerA*playerMod) + "\n"
+                    + "Opponent chose " + mType.toString() + " -> " + monA + " * " + monMod + " = " + (monA*monMod));
             
-            if(monHealth <= 0){
-                JOptionPane.showMessageDialog(null, "Great work!\nYou Win!\n\nYou earned " + exp + " experience");
-                
+            if(monHealth <= 0){//in the case that the monster dies
+                //message to user that they win the encounter
+                JOptionPane.showMessageDialog(null, "Great work!\nYou Win!\n\nYou earned " + expGain + " experience");
+                //add XP
                 c.setXP(c.getXP() + exp);
                 
-                if(c.getXP() >= 20){
+                
+                if(c.getXP() >= 20){//in the case that the player has enough XP to win the game
+                    //display the win screen
                     this.setVisible(false);
                     new gameWon(c).setVisible(true);
-                }else{
+                }else{//otherwise
+                    //go back to home
                     this.setVisible(false);
                     new home(c).setVisible(true);  
                 }
                 
             }
+           
+        }else if(decider < 0){//case in which the monster won
             
-        }else if(decider < 0){
-            
+            //the player looses one health
             playerHealth--;
+            //update on screen
             String H = "";
             for(int i = 0; i < playerHealth; i++){
                H += "❤ ";
             }
             lblPlayerHealth.setText(H);
             
+            //message and rundown to the user
             JOptionPane.showMessageDialog(null, "Ah, you've been hit\n"
                     + "Info:\n"
-                    + "You Chose " + pType.toString() + " -> " + playerAttack + " * " + playerMod + " = " + (playerAttack*playerMod) + "\n"
-                    + "Opponent chose " + mType.toString() + " -> " + monAttack + " * " + monMod + " = " + (monAttack*monMod));
-            
+                    + "You Chose " + pType.toString() + " -> " + playerA + " * " + playerMod + " = " + (playerA*playerMod) + "\n"
+                    + "Opponent chose " + mType.toString() + " -> " + monA + " * " + monMod + " = " + (monA*monMod));
+            //If the player dies to the monster
             if(playerHealth <= 0){
+                //gameover screen
                 this.setVisible(false);
                 new gameOver(c).setVisible(true);
             }
-            
-        }else{
+        
+        }else{//otherwise it was a tie
+            //message with rundown
             JOptionPane.showMessageDialog(null, "tie, nobody wins\n"
                     + "Info:\n"
-                    + "You Chose " + pType.toString() + " -> " + playerAttack + " * " + playerMod + " = " + (playerAttack*playerMod) + "\n"
-                    + "Opponent chose " + mType.toString() + " -> " + monAttack + " * " + monMod + " = " + (monAttack*monMod));
+                    + "You Chose " + pType.toString() + " -> " + playerA + " * " + playerMod + " = " + (playerA*playerMod) + "\n"
+                    + "Opponent chose " + mType.toString() + " -> " + monA + " * " + monMod + " = " + (monA*monMod));
         }
     }
 
@@ -278,8 +312,8 @@ public class battle extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblPlayerName = new javax.swing.JLabel();
+        lblMonName = new javax.swing.JLabel();
         lblPlayer = new javax.swing.JLabel();
         lblMonster = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -298,9 +332,11 @@ public class battle extends javax.swing.JFrame {
         setTitle("Battle");
         setUndecorated(true);
 
-        jLabel1.setText("Player");
+        lblPlayerName.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+        lblPlayerName.setText("Player");
 
-        jLabel2.setText("Monster");
+        lblMonName.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
+        lblMonName.setText("Monster");
 
         lblPlayer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblPlayer.setOpaque(true);
@@ -385,7 +421,7 @@ public class battle extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(lblPlayerHealth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblPlayerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnWater, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
@@ -406,7 +442,7 @@ public class battle extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMonster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(lblMonName, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                             .addComponent(lblMonHealth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1))))
                 .addContainerGap())
@@ -416,8 +452,8 @@ public class battle extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(lblPlayerName)
+                    .addComponent(lblMonName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblMonster, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -450,17 +486,21 @@ public class battle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFleeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFleeActionPerformed
+        //message to user explaining XP loss
         JOptionPane.showMessageDialog(null, "As you run away you loose some experience");
+        //subtracts 4 XP or if the player does not have enough, the player looses the rest of their XP
         if(c.getXP() >= 4){
             c.setXP(c.getXP() - 4);
         }else{
             c.setXP(0);
         }
         
+        //return to home screen
         this.setVisible(false);
         new home(c).setVisible(true);
     }//GEN-LAST:event_btnFleeActionPerformed
-
+    
+    //different attack buttons (0 = earth, 1 = fire, 2 = water, 3 = ice)
     private void btnEarthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEarthActionPerformed
         attack(0);
     }//GEN-LAST:event_btnEarthActionPerformed
@@ -484,15 +524,15 @@ public class battle extends javax.swing.JFrame {
     private javax.swing.JButton btnFlee;
     private javax.swing.JButton btnIce;
     private javax.swing.JButton btnWater;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMonHealth;
+    private javax.swing.JLabel lblMonName;
     private javax.swing.JTextPane lblMonStats;
     private javax.swing.JLabel lblMonster;
     private javax.swing.JLabel lblPlayer;
     private javax.swing.JLabel lblPlayerHealth;
+    private javax.swing.JLabel lblPlayerName;
     // End of variables declaration//GEN-END:variables
 }
